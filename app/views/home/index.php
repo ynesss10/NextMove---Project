@@ -6,7 +6,7 @@
 </head>
 <body>
   <div class="navbar">
-    <img src="/gambar/logo.png" class="logo">
+    <img src="/assets/logo.png" class="logo">
     <h1 class="nextmove">Next Move</h1>
     <div class="navigation">
       <a href="#">Home</a>
@@ -24,7 +24,7 @@
 </div>
 
   <div class="banner">
-    <img src="/gambar/banner.png" class="banner-1">
+    <img src="../gambar/banner.png" class="banner-1">
   </div>
 
   <div class="body">
@@ -60,7 +60,7 @@
     Hanya butuh beberapa menit untuk mendapatkan rekomendasi karier
     yang cocok untukmu
   </p>
-  <a href="#" class="cta-button">Start Now</a>
+  <a href="../minat/minat.html" class="cta-button">Start Now</a>
 </div>
 
 
