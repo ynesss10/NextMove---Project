@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <title>Next Move</title>
-  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
   <div class="navbar">
@@ -24,7 +24,7 @@
 </div>
 
   <div class="banner">
-    <img src="../gambar/banner.png" class="banner-1">
+    <img src="/assets/banner.png" class="banner-1">
   </div>
 
   <div class="body">
@@ -60,7 +60,7 @@
     Hanya butuh beberapa menit untuk mendapatkan rekomendasi karier
     yang cocok untukmu
   </p>
-  <a href="../minat/minat.html" class="cta-button">Start Now</a>
+  <a href="index.php?url=match/interest" class="cta-button">Start Now</a>
 </div>
 
 
