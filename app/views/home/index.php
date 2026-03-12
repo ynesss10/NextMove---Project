@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <title>Next Move</title>
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/home.css">
 </head>
 <body>
   <div class="navbar">
