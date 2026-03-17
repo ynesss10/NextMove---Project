@@ -94,7 +94,13 @@
 <hr>
     <div class="footer-nav">
 <a href="#" class="btn-back">Back</a>
-<a href="skill.php" class="btn-next">Next</a>
+<form action="/skills" method="POST">
+
+    <input type="hidden" name="interest" value="contoh">
+
+    <button type="submit" class="btn-next">Next</button>
+</form>
+
 </div>
 <footer>
     <p>&copy; <?= date('Y') ?> Next Move. SMK Kristen Immanuel.</p>
