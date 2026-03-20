@@ -1,0 +1,379 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  background: white;
+  padding: 15px 40px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+}
+
+.logo {
+  width: 80px;
+  height: 50px;
+  margin-right: 20px;
+}
+
+.nextmove {
+  font-size: 24px;
+  font-weight: bold;
+  background: linear-gradient(135deg, #3B82F6, #6C63FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+}
+
+.navigation {
+  display: flex;
+  gap: 30px;
+  margin-left: auto;
+  font-weight: 500;
+}
+
+.navigation a {
+  text-decoration: none;
+  color: #6C63FF;
+  transition: color 0.3s;
+}
+
+.navigation a:hover {
+  color: #3B82F6;
+}
+
+.main {
+  flex: 1;
+  padding: 40px 0;
+  background-color: rgba(108, 99, 255, 0.2);
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 50px;
+  padding: 40px 20px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.title-1 {
+  font-size: 36px;
+  font-weight: bold;
+  color: #2d3748;
+  margin: 0 0 10px 0;
+  background: linear-gradient(135deg, #3B82F6, #6C63FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.title-2 {
+  font-size: 18px;
+  color: #718096;
+  margin: 0;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 40px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.empty-icon {
+  color: #cbd5e0;
+  margin-bottom: 20px;
+}
+
+.empty-state h3 {
+  font-size: 24px;
+  color: #2d3748;
+  margin: 0 0 10px 0;
+}
+
+.empty-state p {
+  font-size: 16px;
+  color: #718096;
+  margin: 0 0 30px 0;
+}
+
+.btn-explore {
+  display: inline-block;
+  background: linear-gradient(135deg, #6C63FF, #3B82F6);
+  color: white;
+  padding: 12px 30px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.btn-explore:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(108, 99, 255, 0.4);
+}
+
+.saved-careers {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.career-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+
+.career-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.career-card-header {
+  background: linear-gradient(135deg, #6c63ff, #8a7dff);
+  color: white;
+  padding: 25px;
+  text-align: center;
+}
+
+.career-card-header h3 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.career-card-body {
+  padding: 25px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.career-description {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #4a5568;
+  margin-bottom: 15px;
+  flex: 1;
+}
+
+.career-meta {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  font-size: 13px;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #718096;
+  background: #f7fafc;
+  padding: 8px 12px;
+  border-radius: 20px;
+}
+
+.meta-item strong {
+  color: #2d3748;
+}
+
+.career-card-actions {
+  display: flex;
+  gap: 10px;
+  border-top: 1px solid #e2e8f0;
+  padding-top: 20px;
+}
+
+.btn {
+  flex: 1;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 10px;
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+  font-weight: 600;
+  transition: all 0.3s;
+  text-align: center;
+}
+
+.btn-view {
+  background: #4a6cff;
+  color: white;
+}
+
+.btn-view:hover {
+  background: #3b57e8;
+  transform: translateY(-1px);
+}
+
+.btn-remove {
+  background: #f56565;
+  color: white;
+}
+
+.btn-remove:hover {
+  background: #e53e3e;
+  transform: translateY(-1px);
+}
+
+hr {
+  width: 75%;
+  margin: 40px auto;
+  color: #cfcfcf;
+  border: none;
+  border-top: 1px solid #cfcfcf;
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: -50px;
+  padding: 0 185px 5px 185px;
+  font-family: Arial, sans-serif;
+  flex-shrink: 0;
+}
+
+.btn-back, .btn-next {
+  background: #5f6df5;
+  color: white;
+  border: none;
+  padding: 14px 30px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: 0.2s;
+  font-family: Arial, sans-serif;
+  text-decoration: none;
+}
+
+.btn-back:hover, .btn-next:hover {
+  background: #4b57d6;
+}
+
+/* Footer */
+footer {
+  background: #2d3748;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  flex-shrink: 0;
+}
+
+footer p {
+  margin: 0;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 15px 20px;
+  }
+
+  .navigation {
+    margin-left: 0;
+    margin-top: 15px;
+    gap: 20px;
+  }
+
+  .title {
+    padding: 30px 20px;
+  }
+
+  .title-1 {
+    font-size: 28px;
+  }
+
+  .title-2 {
+    font-size: 16px;
+  }
+
+  .container {
+    padding: 0 15px;
+  }
+
+  .saved-careers {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .empty-state {
+    padding: 40px 20px;
+  }
+
+  .footer-nav {
+    flex-direction: column;
+    gap: 10px;
+    padding: 0 20px 5px 20px;
+    align-items: center;
+    
+  }
+
+  .btn-back, .btn-next {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .career-card-actions {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 10px 15px;
+  }
+
+  .logo {
+    width: 60px;
+    height: 40px;
+  }
+
+  .nextmove {
+    font-size: 18px;
+  }
+
+  .navigation {
+    gap: 15px;
+    font-size: 14px;
+  }
+
+  .title-1 {
+    font-size: 24px;
+  }
+
+  .saved-careers {
+    grid-template-columns: 1fr;
+  }
+
+  .main {
+    padding: 20px 0;
+  }
+}

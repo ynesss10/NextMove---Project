@@ -1,31 +1,30 @@
-// Login Form Handler with Database Integration
 document.addEventListener('DOMContentLoaded', function() {
   const form = document.getElementById('loginForm');
   const togglePasswordBtn = document.getElementById('togglePassword');
   const passwordInput = document.getElementById('password');
 
-  if (!form) return; // Exit if form doesn't exist
+  if (!form) return; 
 
-  // Toggle Password Visibility
+
   if (togglePasswordBtn) {
     togglePasswordBtn.addEventListener('click', function(e) {
       e.preventDefault();
       const type = passwordInput.type === 'password' ? 'text' : 'password';
       passwordInput.type = type;
       
-      // Update icon appearance
+  
       togglePasswordBtn.style.opacity = type === 'text' ? '1' : '0.6';
     });
   }
 
-  // Form Submission
+
   form.addEventListener('submit', function(e) {
     e.preventDefault();
     
-    // Clear previous error messages
+ 
     clearErrors();
     
-    // Validate all fields
+
     const isValid = validateForm();
     
     if (isValid) {
@@ -33,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // Real-time validation
+
   form.addEventListener('input', function(e) {
     const field = e.target;
     
@@ -45,7 +44,6 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-// Validation Functions
 function validateEmail() {
   const email = document.getElementById('email').value.trim();
   const error = document.getElementById('emailError');
@@ -86,7 +84,7 @@ function clearErrors() {
   });
 }
 
-// Submit form to server
+
 function submitFormToServer() {
   const email = document.getElementById('email').value.trim();
   const password = document.getElementById('password').value;
@@ -111,9 +109,8 @@ function submitFormToServer() {
   })
   .then(data => {
     if (data.status) {
-      // Success
       alert('Login successful! Redirecting...');
-      window.location.href = '/dashboard';
+      window.location.href = '/';
     }
   })
   .catch(error => {

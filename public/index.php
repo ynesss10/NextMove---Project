@@ -30,6 +30,8 @@ $router->add('GET', '/logins', 'LoginController', 'login');
 
 $router->add('GET', '/details', 'DetailController', 'detail');
 
+$router->add('GET', '/saved', 'SaveController', 'save');
+
 $router->run();
 
 ?>
