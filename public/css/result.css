@@ -1,12 +1,16 @@
-body {
+html, body {
+  height: 100vh;
   margin: 0;
   padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Arial', 'Helvetica', sans-serif;
 }
 
 .navbar {
   display: flex;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  flex-shrink: 0;
 }
 
 .logo {
@@ -61,8 +65,10 @@ body {
 }
 
 .main {
-      background-color: rgba(108, 99, 255, 0.2);
-      padding: 1px;
+  flex: 1;
+  background-color: rgba(108, 99, 255, 0.2);
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .container {
@@ -110,16 +116,54 @@ body {
 }
 
 .card-body {
-  height: 150px;
+  height: 100px;
   padding: 20px;
+  
 }
 
-footer{
-    text-align:center;
-    padding:20px 0;
-    background:#f8f0fa;
-    margin-top: 50px;
-    font-family: Arial, Helvetica, sans-serif;
+.card-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  padding: 15px;
+  border-top: 1px solid #f1f1f1;
+}
+
+.btn {
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 8px 14px;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.btn-view {
+  background: #4a6cff;
+  color: white;
+}
+
+.btn-save {
+  background: #10b981;
+  color: white;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+footer {
+  background: #2d3748;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  flex-shrink: 0;
+}
+
+footer p {
+  margin: 0;
+  font-size: 14px;
 }
 
 hr {

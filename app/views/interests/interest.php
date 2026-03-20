@@ -96,10 +96,12 @@
 <a href="/" class="btn-back">Back</a>
 <a href="/skills" class="btn-next">Next</a>
 </div>
-<footer>
+
+</div>
+
+    <footer>
     <p>&copy; <?= date('Y') ?> Next Move. SMK Kristen Immanuel.</p>
 </footer>
-</div>
 
 <script src="/js/interest.js"></script>
 

@@ -33,4 +33,19 @@ class Career {
 
         return $stmt->get_result()->fetch_assoc();
     }
+
+    public function getAllCareers()
+    {
+        $sql = "SELECT * FROM careers";
+        $result = $this->conn->query($sql);
+
+        $careers = [];
+        if ($result) {
+            while ($row = $result->fetch_assoc()) {
+                $careers[] = $row;
+            }
+        }
+
+        return $careers;
+    }
 }

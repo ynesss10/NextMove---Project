@@ -12,7 +12,7 @@
       <a href="#">Home</a>
       <a href="#">About</a>
       <a href="#">Contact</a>
-      <a href="#">Help</a>
+      <a href="registers" class="help-button">Sign Up</a>
     </div>
   </div>
 

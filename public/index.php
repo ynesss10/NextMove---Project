@@ -11,7 +11,7 @@ $router = new Router();
 $router->add('GET', '/', 'LandingController', 'landingView');
 
 // Interest
-$router->add('GET', '/interests', 'InterestController', 'index');
+$router->add('GET', '/interests', 'InterestController', 'interest');
 
 // Daftar => index
 // Tambah => create
@@ -19,11 +19,16 @@ $router->add('GET', '/interests', 'InterestController', 'index');
 // Detail => show
 
 // Skill
-$router->add('GET', '/skills', 'SkillController', 'index');
+$router->add('GET', '/skills', 'SkillController', 'skill');
 
 // Result
-$router->add('GET', '/results', 'ResultController', 'resultView');
+$router->add('GET', '/results', 'ResultController', 'result');
 
+$router->add('GET', '/registers', 'RegisterController', 'register');
+
+$router->add('GET', '/logins', 'LoginController', 'login');
+
+$router->add('GET', '/details', 'DetailController', 'detail');
 
 $router->run();
 

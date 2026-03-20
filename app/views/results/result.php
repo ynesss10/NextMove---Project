@@ -35,12 +35,20 @@
       
       <div class="card">
         <div class="card-header">Software Developer</div>
-        <div class="card-body"></div>
+        <div class="card-body">Software developer bertanggung jawab untuk merancang, mengembangkan, menguji, dan memelihara perangkat lunak.</div>
+        <div class="card-actions">
+          <a href="/details" class="btn btn-view">View Detail</a>
+          <button class="btn btn-save">Save</button>
+        </div>
       </div>
 
       <div class="card">
         <div class="card-header">Web Developer</div>
-        <div class="card-body"></div>
+        <div class="card-body">Web developer berfokus pada pengembangan dan pemeliharaan website.</div>
+        <div class="card-actions">
+          <a href="/career/detail?id=web-developer" class="btn btn-view">View Detail</a>
+          <button class="btn btn-save">Save</button>
+        </div>
       </div>
 
     </div>
@@ -54,12 +62,11 @@
 <a href="#" class="btn-next">Save</a>
 </div>
 
+</div>
 
-<footer>
+  <footer>
     <p>&copy; <?= date('Y') ?> Next Move. SMK Kristen Immanuel.</p>
 </footer>
-
-</div>
 
 </body>
 </html>

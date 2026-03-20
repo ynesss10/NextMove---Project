@@ -63,13 +63,14 @@
 <a href="/interests" class="btn-back">Back</a>
 <a href="/results" class="btn-next">Next</a>
 </div>
-
-<footer>
-    <p>&copy; <?= date('Y') ?> Next Move. SMK Kristen Immanuel.</p>
-</footer>
+   
 </div>
 </div>
 
+    <footer>
+        <p>&copy; <?= date('Y') ?> Next Move. SMK Kristen Immanuel.</p>
+    </footer>
+    
     <script src="/js/skill.js"></script>
 
 </body>
