@@ -31,8 +31,6 @@
     <h1 class="body-1">How Next Move Operates?</h1>
   </div>
 
-
-
 <div class="steps">
   <div class="card">
     <div class="circle">1</div>

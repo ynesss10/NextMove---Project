@@ -5,7 +5,7 @@ class InterestController
 {
     public function index()
     {
-        require_once '../app/views/interests/index.php';
+        require_once '../app/views/interests/interest.php';
     }
 }
 

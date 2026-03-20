@@ -22,7 +22,7 @@ $router->add('GET', '/interests', 'InterestController', 'index');
 $router->add('GET', '/skills', 'SkillController', 'index');
 
 // Result
-
+$router->add('GET', '/results', 'ResultController', 'resultView');
 
 
 $router->run();

@@ -5,7 +5,7 @@ class SkillController
 {
     public function index()
     {
-        require_once '../app/views/skills/index.php';
+        require_once '../app/views/skills/skill.php';
     }
 }
 
