@@ -5,6 +5,7 @@ const passwordInput = document.getElementById('password');
 const confirmPasswordInput = document.getElementById('confirm-password');
 const termsInput = document.getElementById('terms');
 const togglePasswordBtn = document.getElementById('togglePassword');
+const formErrorEl = document.getElementById('formError');
 
 
 togglePasswordBtn.addEventListener('click', (e) => {
@@ -111,7 +112,8 @@ termsInput.addEventListener('change', validateTerms);
 
 registerForm.addEventListener('submit', async (e) => {
   e.preventDefault();
-  
+  formErrorEl.textContent = '';
+  formErrorEl.style.display = 'none';
 
   const isFullnameValid = validateFullname();
   const isEmailValid = validateEmail();
@@ -143,13 +145,14 @@ registerForm.addEventListener('submit', async (e) => {
     const result = await response.json();
     
     if (response.ok) {
-      alert('Registrasi berhasil! Silakan login dengan akun Anda.');
-      window.location.href = '/logins';
+      window.location.href = '/';
     } else {
-      alert(result.message || 'Terjadi kesalahan saat registrasi');
+      formErrorEl.textContent = result.message || 'Terjadi kesalahan saat registrasi';
+      formErrorEl.style.display = 'block';
     }
   } catch (error) {
     console.error('Error:', error);
-    alert('Terjadi kesalahan jaringan');
+    formErrorEl.textContent = 'Terjadi kesalahan jaringan';
+    formErrorEl.style.display = 'block';
   }
 });

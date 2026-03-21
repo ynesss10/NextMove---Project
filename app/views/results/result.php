@@ -11,9 +11,16 @@
     <img src="/assets/logo.png" class="logo">
     <h1 class="nextmove">Next Move</h1>
     <div class="navigation">
-      <a href="#">Home</a>
+      <a href="/">Home</a>
       <a href="/saved">Saved</a>
-      <a href="registers" class="help-button">Sign Up</a>
+      <?php if(isset($_SESSION['user_name'])): ?>
+        <div style="display: flex; gap: 15px; align-items: center;">
+          <a href="#" class="help-button"><?= htmlspecialchars($_SESSION['user_name']) ?></a>
+          <a href="/logout" class="logout-button">Log Out</a>
+        </div>
+      <?php else: ?>
+        <a href="/registers" class="help-button">Sign Up</a>
+      <?php endif; ?>
     </div>
   </div>
 
@@ -58,7 +65,7 @@
 
     <div class="footer-nav">
 <a href="/" class="btn-back">Home</a>
-<a href="#" class="btn-next">Save</a>
+<a href="/interests" class="btn-next">Explore More</a>
 </div>
 
 </div>

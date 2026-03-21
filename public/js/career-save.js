@@ -1,3 +1,41 @@
+const showToast = (message, type = 'success') => {
+  const toast = document.createElement('div');
+  toast.textContent = message;
+  toast.style.position = 'fixed';
+  toast.style.bottom = '20px';
+  toast.style.right = '20px';
+  toast.style.padding = '12px 24px';
+  toast.style.borderRadius = '8px';
+  toast.style.color = 'white';
+  toast.style.fontWeight = 'bold';
+  toast.style.zIndex = '10000';
+  toast.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+  toast.style.opacity = '0';
+  toast.style.transform = 'translateY(20px)';
+  toast.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)';
+  
+  if (type === 'success') {
+    toast.style.background = 'linear-gradient(to right, #10B981, #059669)';
+  } else if (type === 'info') {
+    toast.style.background = 'linear-gradient(to right, #3B82F6, #2563EB)';
+  } else {
+    toast.style.background = 'linear-gradient(to right, #EF4444, #DC2626)';
+  }
+  
+  document.body.appendChild(toast);
+  
+  setTimeout(() => {
+    toast.style.opacity = '1';
+    toast.style.transform = 'translateY(0)';
+  }, 10);
+  
+  setTimeout(() => {
+    toast.style.opacity = '0';
+    toast.style.transform = 'translateY(20px)';
+    setTimeout(() => document.body.removeChild(toast), 300);
+  }, 3000);
+};
+
 // Fungsi untuk menyimpan karir ke localStorage
 const saveCareer = (careerName, description) => {
   // Ambil data yang sudah ada
@@ -22,7 +60,7 @@ const saveCareer = (careerName, description) => {
   return false;
 };
 
-// Handle klik tombol save
+
 document.addEventListener('DOMContentLoaded', () => {
   const saveButtons = document.querySelectorAll('.btn-save');
   
@@ -30,24 +68,29 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       
-      // Ambil data karir dari card
+      let careerName, description;
       const card = btn.closest('.card');
-      const careerName = card.querySelector('.card-header').textContent;
-      const description = card.querySelector('.card-body').textContent;
       
-      // Simpan karir
+      if (card) {
+        careerName = card.querySelector('.card-header').textContent;
+        description = card.querySelector('.card-body').textContent;
+      } else {
+        careerName = document.querySelector('.career-title').textContent;
+        description = document.querySelector('.career-section p').textContent;
+      }
+      
+   
       const isSaved = saveCareer(careerName, description);
       
       if (isSaved) {
-        // Ubah text dan style tombol
+   
         btn.textContent = 'Saved';
         btn.classList.add('saved');
         btn.disabled = true;
         
-        // Tampilkan notifikasi
-        alert(`${careerName} berhasil disimpan!`);
+        showToast(`${careerName} berhasil disimpan!`, 'success');
       } else {
-        alert(`${careerName} sudah disimpan sebelumnya`);
+        showToast(`${careerName} sudah disimpan sebelumnya`, 'info');
       }
     });
   });

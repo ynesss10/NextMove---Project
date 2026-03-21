@@ -9,7 +9,10 @@ html, body {
 
 .navbar {
   display: flex;
+  align-items: center;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 10px 0;
+  background: white;
   flex-shrink: 0;
 }
 
@@ -17,6 +20,7 @@ html, body {
   display: flex;
   width: 100px;
   height: 60px;
+  align-items: center;
 }
 
 .nextmove {
@@ -25,14 +29,18 @@ html, body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 25px;
+  margin: 0;
+  display: flex;
+  align-items: center;
 }
 
 .navigation {
   display: flex;
+  align-items: center;
   gap: 50px;
   margin-left: auto;
   margin-right: 40px;
-  margin-top: 20px;
+  margin-top: 0;
   font-family: Arial, Helvetica, sans-serif;
     background: linear-gradient(to right, #3B82F6, #6C63FF);
   -webkit-background-clip: text;
@@ -201,4 +209,50 @@ footer p {
 
 .error-message.show {
   opacity: 1;
+}
+
+.help-button {
+  display: inline-block;
+  padding: 6px 16px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  -webkit-text-fill-color: white;
+  text-decoration: none;
+  border-radius: 20px;
+  background: linear-gradient(to right, #3B82F6, #6C63FF);
+  -webkit-background-clip: unset;
+  box-shadow: 0 4px 10px rgba(59, 130, 246, 0.4);
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.help-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(108, 99, 255, 0.6);
+}
+
+.logout-button {
+  display: inline-block;
+  padding: 4px 12px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #ff4757;
+  -webkit-text-fill-color: #ff4757;
+  text-decoration: none;
+  border-radius: 20px;
+  background: white;
+  border: 2px solid #ff4757;
+  box-shadow: 0 4px 10px rgba(255, 71, 87, 0.2);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.logout-button:hover {
+  transform: translateY(-2px);
+  background: #ff4757;
+  color: white;
+  -webkit-text-fill-color: white;
+  box-shadow: 0 6px 15px rgba(255, 71, 87, 0.4);
 }

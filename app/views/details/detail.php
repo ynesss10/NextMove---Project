@@ -7,34 +7,40 @@
     <link rel="stylesheet" href="/css/detail.css">
 </head>
 <body>
-    <!-- Navbar -->
+
     <div class="navbar">
         <img src="/assets/logo.png" class="logo">
         <h1 class="nextmove">Next Move</h1>
         <div class="navigation">
             <a href="/">Home</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
-            <a href="#">Help</a>
+            <a href="/saved">Saved</a>
+            <?php if(isset($_SESSION['user_name'])): ?>
+                <div style="display: flex; gap: 15px; align-items: center;">
+                    <a href="#" class="help-button"><?= htmlspecialchars($_SESSION['user_name']) ?></a>
+                    <a href="/logout" class="logout-button">Log Out</a>
+                </div>
+            <?php else: ?>
+                <a href="/registers" class="help-button">Sign Up</a>
+            <?php endif; ?>
         </div>
     </div>
 
-    <!-- Main Content -->
+  
     <div class="main">
         <div class="container">
-            <!-- Career Header -->
+      
             <div class="career-header">
                 <h1 class="career-title">Software Developer</h1>
                 <p class="career-subtitle">Bidang Teknologi Informasi</p>
             </div>
 
-            <!-- Career Description -->
+    
             <div class="career-section">
                 <h2>Deskripsi Karier</h2>
                 <p>Software Developer adalah profesional yang bertanggung jawab untuk merancang, mengembangkan, dan memelihara aplikasi perangkat lunak. Mereka bekerja dengan berbagai bahasa pemrograman dan teknologi untuk menciptakan solusi digital yang inovatif.</p>
             </div>
 
-            <!-- Skills Required -->
+       
             <div class="career-section">
                 <h2>Keterampilan yang Dibutuhkan</h2>
                 <div class="skills-grid">
@@ -57,7 +63,7 @@
                 </div>
             </div>
 
-            <!-- Education Path -->
+    
             <div class="career-section">
                 <h2>Jalur Pendidikan</h2>
                 <ul class="education-list">
@@ -68,7 +74,7 @@
                 </ul>
             </div>
 
-            <!-- Action Buttons -->
+     
             <div class="action-buttons">
                 <a href="/results" class="btn btn-back">Kembali ke Hasil</a>
                 <button class="btn btn-save">Simpan Karier</button>
@@ -76,10 +82,11 @@
         </div>
     </div>
 
-    <!-- Footer -->
+
     <footer>
         <p>&copy; <?= date('Y') ?> Next Move. SMK Kristen Immanuel.</p>
     </footer>
 
+    <script src="/js/career-save.js"></script>
 </body>
 </html>

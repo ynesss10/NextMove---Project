@@ -3,7 +3,7 @@
 class Database {
 
     private $host = "localhost";
-    private $db = "career_explorer";
+    private $db = "next_move";
     private $user = "root";
     private $pass = "";
 

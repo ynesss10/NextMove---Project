@@ -75,6 +75,8 @@
           <span class="error-message" id="termsError"></span>
         </div>
 
+        <div id="formError" class="error-message" style="text-align: center; display: none; margin-bottom: 1rem;"></div>
+
         <button type="submit" class="submit-btn">Create Account</button>
       </form>
 

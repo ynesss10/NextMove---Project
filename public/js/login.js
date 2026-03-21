@@ -2,6 +2,7 @@ const loginForm = document.getElementById('loginForm');
 const emailInput = document.getElementById('email');
 const passwordInput = document.getElementById('password');
 const togglePasswordBtn = document.getElementById('togglePassword');
+const formErrorEl = document.getElementById('formError');
 
 
 togglePasswordBtn.addEventListener('click', (e) => {
@@ -56,7 +57,8 @@ passwordInput.addEventListener('blur', validatePassword);
 
 loginForm.addEventListener('submit', async (e) => {
   e.preventDefault();
-  
+  formErrorEl.textContent = '';
+  formErrorEl.style.display = 'none';
 
   const isEmailValid = validateEmail();
   const isPasswordValid = validatePassword();
@@ -83,13 +85,14 @@ loginForm.addEventListener('submit', async (e) => {
     const result = await response.json();
     
     if (response.ok) {
-      alert('Login berhasil!');
       window.location.href = '/';
     } else {
-      alert(result.message || 'Email atau password salah');
+      formErrorEl.textContent = result.message || 'Email atau password salah';
+      formErrorEl.style.display = 'block';
     }
   } catch (error) {
     console.error('Error:', error);
-    alert('Terjadi kesalahan jaringan');
+    formErrorEl.textContent = 'Terjadi kesalahan jaringan';
+    formErrorEl.style.display = 'block';
   }
 });

@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once '../app/core/Router.php';
 use App\Core\Router;
 
@@ -25,8 +26,12 @@ $router->add('GET', '/skills', 'SkillController', 'skill');
 $router->add('GET', '/results', 'ResultController', 'result');
 
 $router->add('GET', '/registers', 'RegisterController', 'register');
+$router->add('POST', '/api/register', 'RegisterController', 'store');
 
 $router->add('GET', '/logins', 'LoginController', 'login');
+$router->add('POST', '/api/login', 'LoginController', 'authenticate');
+
+$router->add('GET', '/logout', 'LogoutController', 'logout');
 
 $router->add('GET', '/details', 'DetailController', 'detail');
 
