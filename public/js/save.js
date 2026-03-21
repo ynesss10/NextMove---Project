@@ -1,85 +1,72 @@
-// Saved Careers Page - Display and manage saved careers
-document.addEventListener('DOMContentLoaded', function() {
-  loadSavedCareers();
+// Load saved careers saat halaman dimuat
+document.addEventListener('DOMContentLoaded', () => {
+  displaySavedCareers();
 });
 
-/**
- * Load saved careers from localStorage
- */
-function loadSavedCareers() {
-  const emptyState = document.getElementById('emptyState');
-  const savedCareersContainer = document.getElementById('savedCareers');
-  
-  // Get saved careers from localStorage
+// Fungsi untuk menampilkan saved careers
+const displaySavedCareers = () => {
   const savedCareers = JSON.parse(localStorage.getItem('savedCareers')) || [];
-
+  const container = document.getElementById('savedCareers');
+  const emptyState = document.getElementById('emptyState');
+  
   if (savedCareers.length === 0) {
+    // Tampilkan empty state
+    container.style.display = 'none';
     emptyState.style.display = 'block';
-    savedCareersContainer.style.display = 'none';
   } else {
+    // Tampilkan list karir yang disimpan
     emptyState.style.display = 'none';
-    savedCareersContainer.style.display = 'grid';
+    container.style.display = 'grid';
+    container.innerHTML = '';
     
-    // Clear previous content
-    savedCareersContainer.innerHTML = '';
+    savedCareers.forEach(career => {
+      const careerCard = document.createElement('div');
+      careerCard.className = 'career-card';
+      careerCard.innerHTML = `
+        <div class="career-card-header">
+          <h3>${career.name}</h3>
+          <button class="btn-remove" data-id="${career.id}" style="position: absolute; top: 15px; right: 15px; background: none; border: none; color: white; cursor: pointer; padding: 5px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="3 6 5 6 21 6"></polyline>
+              <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+              <line x1="10" y1="11" x2="10" y2="17"></line>
+              <line x1="14" y1="11" x2="14" y2="17"></line>
+            </svg>
+          </button>
+        </div>
+        <div class="career-card-body">
+          <div class="career-description">${career.description}</div>
+          <div class="career-card-actions">
+            <a href="/career/detail?name=${encodeURIComponent(career.name)}" class="btn btn-view">View Detail</a>
+          </div>
+        </div>
+      `;
+      
+      container.appendChild(careerCard);
+    });
     
-    // Add each saved career
-    savedCareers.forEach((career, index) => {
-      const careerCard = createCareerCard(career, index);
-      savedCareersContainer.appendChild(careerCard);
+    // Handle tombol remove
+    const removeButtons = document.querySelectorAll('.btn-remove');
+    removeButtons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const careerName = btn.closest('.career-card').querySelector('h3').textContent;
+        removeCareer(parseInt(btn.dataset.id), careerName);
+      });
     });
   }
-}
+};
 
-/**
- * Create a career card element
- */
-function createCareerCard(career, index) {
-  const card = document.createElement('div');
-  card.className = 'career-card';
-  card.innerHTML = `
-    <div class="career-card-header">
-      <h3>${career.title || 'Career Title'}</h3>
-    </div>
-    <div class="career-card-body">
-      <p class="career-description">${career.description || 'No description available'}</p>
-      <div class="career-meta">
-        <div class="meta-item">
-          <span>📅 Saved on:</span>
-          <strong>${formatDate(career.savedDate)}</strong>
-        </div>
-      </div>
-      <div class="career-card-actions">
-        <a href="${career.detailLink || '/details'}" class="btn btn-view">View Detail</a>
-        <button class="btn btn-remove" onclick="removeSavedCareer(${index})">Remove</button>
-      </div>
-    </div>
-  `;
-  
-  return card;
-}
-
-/**
- * Remove a saved career
- */
-function removeSavedCareer(index) {
-  if (confirm('Are you sure you want to remove this career?')) {
-    const savedCareers = JSON.parse(localStorage.getItem('savedCareers')) || [];
-    savedCareers.splice(index, 1);
-    localStorage.setItem('savedCareers', JSON.stringify(savedCareers));
+// Fungsi untuk menghapus karir
+const removeCareer = (careerID, careerName) => {
+  if (confirm(`Hapus "${careerName}" dari daftar simpanan?`)) {
+    let savedCareers = JSON.parse(localStorage.getItem('savedCareers')) || [];
+    savedCareers = savedCareers.filter(career => career.id !== careerID);
     
-    // Reload the page
-    loadSavedCareers();
+    localStorage.setItem('savedCareers', JSON.stringify(savedCareers));
+    alert(`${careerName} berhasil dihapus`);
+    
+    // Refresh tampilan
+    displaySavedCareers();
   }
-}
-
-/**
- * Format date to readable format
- */
-function formatDate(dateString) {
-  if (!dateString) return 'Today';
-  
-  const date = new Date(dateString);
-  const options = { year: 'numeric', month: 'short', day: 'numeric' };
-  return date.toLocaleDateString('id-ID', options);
-}
+};

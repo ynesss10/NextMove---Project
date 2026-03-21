@@ -153,6 +153,7 @@ html, body {
   color: white;
   padding: 25px;
   text-align: center;
+  position: relative;
 }
 
 .career-card-header h3 {

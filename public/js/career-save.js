@@ -1,60 +1,54 @@
-function saveCareer(careerData) {
-  if (!careerData.title) {
-    alert('Career title is required');
-    return false;
-  }
-
-  const savedCareers = JSON.parse(localStorage.getItem('savedCareers')) || [];
+// Fungsi untuk menyimpan karir ke localStorage
+const saveCareer = (careerName, description) => {
+  // Ambil data yang sudah ada
+  let savedCareers = JSON.parse(localStorage.getItem('savedCareers')) || [];
   
-  const isAlreadySaved = savedCareers.some(career => career.title === careerData.title);
+  // Cek apakah karir sudah disimpan
+  const isAlreadySaved = savedCareers.some(career => career.name === careerName);
   
-  if (isAlreadySaved) {
-    alert('This career is already saved');
-    return false;
+  if (!isAlreadySaved) {
+    // Tambah karir baru
+    savedCareers.push({
+      id: Date.now(),
+      name: careerName,
+      description: description
+    });
+    
+    // Simpan ke localStorage
+    localStorage.setItem('savedCareers', JSON.stringify(savedCareers));
+    return true;
   }
-
-  careerData.savedDate = new Date().toISOString();
-  savedCareers.push(careerData);
-  localStorage.setItem('savedCareers', JSON.stringify(savedCareers));
-
-  alert('Career saved successfully!');
-  return true;
-}
-
-
-function isCareerSaved(careerTitle) {
-  const savedCareers = JSON.parse(localStorage.getItem('savedCareers')) || [];
-  return savedCareers.some(career => career.title === careerTitle);
-}
-
-
-function updateSaveButtonState(careerTitle, buttonElement) {
-  if (isCareerSaved(careerTitle)) {
-    buttonElement.disabled = true;
-    buttonElement.textContent = 'Saved';
-    buttonElement.style.opacity = '0.6';
-  }
-}
-
-
-function quickSaveCareer(event, careerTitle, careerDescription, detailLink) {
-  event.preventDefault();
   
-  if (isCareerSaved(careerTitle)) {
-    alert('This career is already saved');
-    return;
-  }
+  return false;
+};
 
-  const careerData = {
-    title: careerTitle,
-    description: careerDescription,
-    detailLink: detailLink || '/details'
-  };
-
-  if (saveCareer(careerData)) {
-
-    event.target.disabled = true;
-    event.target.textContent = 'Saved';
-    event.target.style.opacity = '0.6';
-  }
-}
+// Handle klik tombol save
+document.addEventListener('DOMContentLoaded', () => {
+  const saveButtons = document.querySelectorAll('.btn-save');
+  
+  saveButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      
+      // Ambil data karir dari card
+      const card = btn.closest('.card');
+      const careerName = card.querySelector('.card-header').textContent;
+      const description = card.querySelector('.card-body').textContent;
+      
+      // Simpan karir
+      const isSaved = saveCareer(careerName, description);
+      
+      if (isSaved) {
+        // Ubah text dan style tombol
+        btn.textContent = 'Saved';
+        btn.classList.add('saved');
+        btn.disabled = true;
+        
+        // Tampilkan notifikasi
+        alert(`${careerName} berhasil disimpan!`);
+      } else {
+        alert(`${careerName} sudah disimpan sebelumnya`);
+      }
+    });
+  });
+});

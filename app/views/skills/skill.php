@@ -6,16 +6,15 @@
 </head>
 <body>
 
-<div class="navbar">
+ <div class="navbar">
     <img src="/assets/logo.png" class="logo">
     <h1 class="nextmove">Next Move</h1>
     <div class="navigation">
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-        <a href="#">Help</a>
+      <a href="#">Home</a>
+      <a href="/saved">Saved</a>
+      <a href="registers" class="help-button">Sign Up</a>
     </div>
-</div>
+  </div>
 
 <div class="main">
     <div class="title">

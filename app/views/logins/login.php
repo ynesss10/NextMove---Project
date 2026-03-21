@@ -42,6 +42,6 @@
     </div>
   </div>
 
-  <script src="/js/login-api.js"></script>
+  <script src="/js/login.js"></script>
 </body>
 </html>
