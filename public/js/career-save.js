@@ -36,23 +36,20 @@ const showToast = (message, type = 'success') => {
   }, 3000);
 };
 
-// Fungsi untuk menyimpan karir ke localStorage
+
 const saveCareer = (careerName, description) => {
-  // Ambil data yang sudah ada
   let savedCareers = JSON.parse(localStorage.getItem('savedCareers')) || [];
   
-  // Cek apakah karir sudah disimpan
   const isAlreadySaved = savedCareers.some(career => career.name === careerName);
   
   if (!isAlreadySaved) {
-    // Tambah karir baru
+
     savedCareers.push({
       id: Date.now(),
       name: careerName,
       description: description
     });
     
-    // Simpan ke localStorage
     localStorage.setItem('savedCareers', JSON.stringify(savedCareers));
     return true;
   }
