@@ -48,7 +48,7 @@
               required
             >
             <button type="button" class="toggle-password" id="togglePassword">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                 <circle cx="12" cy="12" r="3"></circle>
               </svg>
@@ -59,6 +59,7 @@
 
         <div class="form-group">
           <label for="confirm-password">Confirm Password</label>
+          <div class="password-wrapper">
           <input 
             type="password" 
             id="confirm-password" 
@@ -66,6 +67,13 @@
             placeholder="Confirm your password"
             required
           >
+            <button type="button" class="toggle-password" id="toggleConfirmPassword">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+            </button>
+          </div>
           <span class="error-message" id="confirmPasswordError"></span>
         </div>
 

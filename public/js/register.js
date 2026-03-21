@@ -5,6 +5,7 @@ const passwordInput = document.getElementById('password');
 const confirmPasswordInput = document.getElementById('confirm-password');
 const termsInput = document.getElementById('terms');
 const togglePasswordBtn = document.getElementById('togglePassword');
+const toggleConfirmPasswordBtn = document.getElementById('toggleConfirmPassword');
 const formErrorEl = document.getElementById('formError');
 
 
@@ -14,6 +15,15 @@ togglePasswordBtn.addEventListener('click', (e) => {
   passwordInput.type = type;
   togglePasswordBtn.classList.toggle('active');
 });
+
+if (toggleConfirmPasswordBtn) {
+  toggleConfirmPasswordBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const type = confirmPasswordInput.type === 'password' ? 'text' : 'password';
+    confirmPasswordInput.type = type;
+    toggleConfirmPasswordBtn.classList.toggle('active');
+  });
+}
 
 
 const validateFullname = () => {

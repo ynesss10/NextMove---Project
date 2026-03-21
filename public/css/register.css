@@ -54,6 +54,7 @@ body {
   margin-bottom: 6px;
   background: linear-gradient(to right, #3B82F6, #6C63FF);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: bold;
 }
@@ -104,8 +105,6 @@ body {
 
 .password-wrapper {
   position: relative;
-  display: flex;
-  align-items: center;
 }
 
 .password-wrapper input {
@@ -113,9 +112,16 @@ body {
   padding-right: 45px;
 }
 
+.password-wrapper input::-ms-reveal,
+.password-wrapper input::-ms-clear {
+  display: none;
+}
+
 .toggle-password {
   position: absolute;
   right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
   background: none;
   border: none;
   cursor: pointer;
