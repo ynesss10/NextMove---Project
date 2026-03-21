@@ -64,7 +64,11 @@
     Hanya butuh beberapa menit untuk mendapatkan rekomendasi karier
     yang cocok untukmu
   </p>
-  <a href="/interests" class="cta-button">Start Now</a>
+  <?php if(isset($_SESSION['user_name'])): ?>
+    <a href="/interests" class="cta-button">Start Now</a>
+  <?php else: ?>
+    <a href="/logins" class="cta-button">Start Now</a>
+  <?php endif; ?>
 </div>
 
 
