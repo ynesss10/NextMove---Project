@@ -13,6 +13,7 @@ $router->add('GET', '/', 'LandingController', 'landingView');
 
 // Interest
 $router->add('GET', '/interests', 'InterestController', 'interest');
+$router->add('POST', '/api/interest/save', 'InterestController', 'saveInterest');
 
 // Daftar => index
 // Tambah => create
@@ -21,6 +22,7 @@ $router->add('GET', '/interests', 'InterestController', 'interest');
 
 // Skill
 $router->add('GET', '/skills', 'SkillController', 'skill');
+$router->add('POST', '/api/skill/save', 'SkillController', 'saveSkill');
 
 // Result
 $router->add('GET', '/results', 'ResultController', 'result');

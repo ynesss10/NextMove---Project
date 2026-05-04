@@ -3,13 +3,10 @@ const btnNext = document.querySelector(".btn-next");
 
 cards.forEach(card => {
   card.addEventListener("click", () => {
-
     cards.forEach(c => c.classList.remove("active"));
-
     card.classList.add("active");
   });
 });
-
 
 let errorMsg = document.querySelector(".error-message");
 if (!errorMsg) {
@@ -21,7 +18,7 @@ if (!errorMsg) {
   footerNav.insertBefore(errorMsg, btnNext);
 }
 
-btnNext.addEventListener("click", (e) => {
+btnNext.addEventListener("click", async (e) => {
   const activeCard = document.querySelector(".card.active");
   
   if (!activeCard) {
@@ -30,6 +27,38 @@ btnNext.addEventListener("click", (e) => {
     setTimeout(() => {
       errorMsg.classList.remove("show");
     }, 3000);
+  } else {
+    e.preventDefault();
+    const skillId = activeCard.getAttribute("data-id");
+    
+    try {
+      const response = await fetch('/api/skill/save', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ skill_id: skillId })
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        window.location.href = '/results';
+      } else {
+        errorMsg.textContent = data.message || 'Terjadi kesalahan';
+        errorMsg.classList.add("show");
+        setTimeout(() => {
+          errorMsg.classList.remove("show");
+        }, 3000);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      errorMsg.textContent = 'Terjadi kesalahan saat menyimpan pilihan';
+      errorMsg.classList.add("show");
+      setTimeout(() => {
+        errorMsg.classList.remove("show");
+      }, 3000);
+    }
   }
 });
 

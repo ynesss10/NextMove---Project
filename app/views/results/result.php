@@ -33,30 +33,31 @@
 
       <div class="container">
     <div class="top-bar">
-      <div>Minat: <span class="blue">Teknologi Komputer</span></div>
-      <div>Keterampilan: <span class="blue">Coding</span></div>
+      <div>Minat: <span class="blue"><?= htmlspecialchars($interest['name']) ?></span></div>
+      <div>Keterampilan: <span class="blue"><?= htmlspecialchars($skill['name']) ?></span></div>
     </div>
 
+<?php if (isset($matchType) && $matchType !== 'exact'): ?>
+    <div class="info-note" style="margin: 14px 0; padding: 12px; background: #eef5ff; border: 1px solid #cfe0ff; color: #1d3d7a; border-radius: 8px;">
+        Hasil yang ditampilkan adalah rekomendasi terbaik berdasarkan <?= $matchType === 'interest' ? 'minat' : 'skill' ?> Anda.
+    </div>
+<?php endif; ?>
+
     <div class="cards">
-      
+<?php if (empty($careers)): ?>
+      <p style="text-align: center; padding: 40px;">Tidak ada karier yang sesuai dengan pilihan Anda. Silahkan pilih kombinasi lain.</p>
+<?php else: ?>
+<?php foreach ($careers as $career): ?>
       <div class="card">
-        <div class="card-header">Software Developer</div>
-        <div class="card-body">Software developer bertanggung jawab untuk merancang, mengembangkan, menguji, dan memelihara perangkat lunak.</div>
+        <div class="card-header"><?= htmlspecialchars($career['name']) ?></div>
+        <div class="card-body"><?= htmlspecialchars($career['description']) ?></div>
         <div class="card-actions">
           <a href="/details" class="btn btn-view">View Detail</a>
           <button class="btn btn-save">Save</button>
         </div>
       </div>
-
-      <div class="card">
-        <div class="card-header">Web Developer</div>
-        <div class="card-body">Web developer berfokus pada pengembangan dan pemeliharaan website.</div>
-        <div class="card-actions">
-          <a href="/career/detail?id=web-developer" class="btn btn-view">View Detail</a>
-          <button class="btn btn-save">Save</button>
-        </div>
-      </div>
-
+<?php endforeach; ?>
+<?php endif; ?>
     </div>
 
   </div>

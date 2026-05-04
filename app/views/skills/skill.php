@@ -26,43 +26,26 @@
 <div class="main">
     <div class="title">
         <div class="title-1">Keterampilan Apa Yang Kamu Miliki?</div>
-        <div class="title-2">Pilih keterampilan yang paling kamu kuasai atau ingin kembangkan</div>
+        <div class="title-2">Pilih salah satu skill terbaik yang cocok dengan minat <strong><?= isset($interest['name']) ? htmlspecialchars($interest['name']) : 'Anda' ?></strong></div>
     </div>
 
     <div class="steps">
-        <div class="card">
-            <h3>Temukan Minatmu</h3>
-            <p>Eksplorasi berbagai bidang yang sesuai dengan passion kamu</p>
+<?php
+$count = 0;
+foreach ($skills as $skill):
+    if ($count > 0 && $count % 3 === 0) {
+        echo '</div><div class="steps">';
+    }
+    $count++;
+?>
+        <div class="card" data-id="<?= $skill['id'] ?>">
+            <h3><?= htmlspecialchars($skill['name']) ?></h3>
+            <p><?= htmlspecialchars($skill['description']) ?></p>
         </div>
-
-        <div class="card">
-            <h3>Temukan Minatmu</h3>
-            <p>Eksplorasi berbagai bidang yang sesuai dengan passion kamu</p>
-        </div>
-
-        <div class="card">
-            <h3>Temukan Minatmu</h3>
-            <p>Eksplorasi berbagai bidang yang sesuai dengan passion kamu</p>
-        </div>
+<?php endforeach; ?>
     </div>
 
-       <div class="steps">
-        <div class="card">
-            <h3>Temukan Minatmu</h3>
-            <p>Eksplorasi berbagai bidang yang sesuai dengan passion kamu</p>
-        </div>
 
-        <div class="card">
-            <h3>Temukan Minatmu</h3>
-            <p>Eksplorasi berbagai bidang yang sesuai dengan passion kamu</p>
-        </div>
-
-        <div class="card">
-            <h3>Temukan Minatmu</h3>
-            <p>Eksplorasi berbagai bidang yang sesuai dengan passion kamu</p>
-        </div>
-        </div>
-    
 <hr>
 
     <div class="footer-nav">
