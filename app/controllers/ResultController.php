@@ -26,17 +26,55 @@ class ResultController
         $interestId = $_SESSION['selected_interest'];
         $skillId = $_SESSION['selected_skill'];
 
-        $careers = $careerModel->getByInterestAndSkill($interestId, $skillId);
+        $careers = $careerModel->getByInterestAndSkill($interestId, $skillId, 2);
         $matchType = 'exact';
+        $exactCount = count($careers);
 
-        if (empty($careers)) {
-            $careers = $careerModel->getByInterest($interestId);
-            $matchType = 'interest';
+        if ($exactCount < 2) {
+            $existingIds = array_column($careers, 'id');
+            $needed = 2 - $exactCount;
+
+            $interestFill = $careerModel->getByInterest($interestId, $needed, $existingIds);
+            if (!empty($interestFill)) {
+                if ($exactCount === 0) {
+                    $matchType = 'interest';
+                } elseif ($exactCount < 2) {
+                    $matchType = 'mixed';
+                }
+                $careers = array_merge($careers, $interestFill);
+            }
+        }
+
+        if (count($careers) < 2) {
+            $existingIds = array_column($careers, 'id');
+            $needed = 2 - count($careers);
+            $skillFill = $careerModel->getBySkill($skillId, $needed, $existingIds);
+
+            if (!empty($skillFill) && empty($careers)) {
+                $matchType = 'skill';
+            } elseif (!empty($skillFill) && $matchType === 'exact') {
+                $matchType = 'mixed';
+            }
+
+            if (!empty($skillFill)) {
+                $careers = array_merge($careers, $skillFill);
+            }
+        }
+
+        if (!empty($careers)) {
+            $uniqueCareers = [];
+            $seenIds = [];
+            foreach ($careers as $career) {
+                if (!in_array($career['id'], $seenIds, true)) {
+                    $seenIds[] = $career['id'];
+                    $uniqueCareers[] = $career;
+                }
+            }
+            $careers = array_slice($uniqueCareers, 0, 2);
         }
 
         if (empty($careers)) {
-            $careers = $careerModel->getBySkill($skillId);
-            $matchType = 'skill';
+            $matchType = 'none';
         }
 
         $interest = $interestModel->getById($interestId);

@@ -38,8 +38,11 @@ class Career {
         return $result->fetch_assoc();
     }
 
-    public function getByInterestAndSkill($interestId, $skillId) {
+    public function getByInterestAndSkill($interestId, $skillId, $limit = 0) {
         $sql = "SELECT * FROM {$this->table} WHERE interest_id = {$interestId} AND skill_id = {$skillId}";
+        if ($limit > 0) {
+            $sql .= " LIMIT {$limit}";
+        }
         $result = $this->conn->query($sql);
         
         if (!$result) {
@@ -72,8 +75,15 @@ class Career {
         return $skills;
     }
 
-    public function getByInterest($interestId) {
+    public function getByInterest($interestId, $limit = 0, $excludeIds = []) {
         $sql = "SELECT * FROM {$this->table} WHERE interest_id = {$interestId}";
+        if (!empty($excludeIds)) {
+            $excludeIds = array_map('intval', $excludeIds);
+            $sql .= " AND id NOT IN (" . implode(',', $excludeIds) . ")";
+        }
+        if ($limit > 0) {
+            $sql .= " LIMIT {$limit}";
+        }
         $result = $this->conn->query($sql);
         
         if (!$result) {
@@ -88,8 +98,15 @@ class Career {
         return $careers;
     }
 
-    public function getBySkill($skillId) {
+    public function getBySkill($skillId, $limit = 0, $excludeIds = []) {
         $sql = "SELECT * FROM {$this->table} WHERE skill_id = {$skillId}";
+        if (!empty($excludeIds)) {
+            $excludeIds = array_map('intval', $excludeIds);
+            $sql .= " AND id NOT IN (" . implode(',', $excludeIds) . ")";
+        }
+        if ($limit > 0) {
+            $sql .= " LIMIT {$limit}";
+        }
         $result = $this->conn->query($sql);
         
         if (!$result) {

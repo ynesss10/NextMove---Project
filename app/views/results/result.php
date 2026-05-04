@@ -39,7 +39,13 @@
 
 <?php if (isset($matchType) && $matchType !== 'exact'): ?>
     <div class="info-note" style="margin: 14px 0; padding: 12px; background: #eef5ff; border: 1px solid #cfe0ff; color: #1d3d7a; border-radius: 8px;">
-        Hasil yang ditampilkan adalah rekomendasi terbaik berdasarkan <?= $matchType === 'interest' ? 'minat' : 'skill' ?> Anda.
+        <?php if ($matchType === 'interest'): ?>
+            Hasil yang ditampilkan adalah rekomendasi terbaik berdasarkan minat Anda.
+        <?php elseif ($matchType === 'skill'): ?>
+            Hasil yang ditampilkan adalah rekomendasi terbaik berdasarkan keterampilan Anda.
+        <?php else: ?>
+            Hasil yang ditampilkan adalah rekomendasi terbaik berdasarkan kombinasi minat dan keterampilan Anda.
+        <?php endif; ?>
     </div>
 <?php endif; ?>
 
