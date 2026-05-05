@@ -29,7 +29,8 @@
         <div class="title-2">Pilih salah satu skill terbaik yang cocok dengan minat <strong><?= isset($interest['name']) ? htmlspecialchars($interest['name']) : 'Anda' ?></strong></div>
     </div>
 
-    <div class="steps">
+    <form id="skillForm" action="/skill/save" method="POST">
+      <div class="steps">
 <?php
 $count = 0;
 foreach ($skills as $skill):
@@ -43,15 +44,16 @@ foreach ($skills as $skill):
             <p><?= htmlspecialchars($skill['description']) ?></p>
         </div>
 <?php endforeach; ?>
-    </div>
-
+      </div>
+      <input type="hidden" name="skill_id" id="skill_id" value="">
 
 <hr>
 
-    <div class="footer-nav">
-<a href="/interests" class="btn-back">Back</a>
-<a href="/results" class="btn-next">Next</a>
-</div>
+      <div class="footer-nav">
+        <a href="/interests" class="btn-back">Back</a>
+        <button type="submit" class="btn-next">Next</button>
+      </div>
+    </form>
    
 </div>
 </div>

@@ -55,7 +55,7 @@ emailInput.addEventListener('blur', validateEmail);
 passwordInput.addEventListener('blur', validatePassword);
 
 
-loginForm.addEventListener('submit', async (e) => {
+loginForm.addEventListener('submit', (e) => {
   e.preventDefault();
   formErrorEl.textContent = '';
   formErrorEl.style.display = 'none';
@@ -66,33 +66,6 @@ loginForm.addEventListener('submit', async (e) => {
   if (!isEmailValid || !isPasswordValid) {
     return;
   }
-  
-  // Prepare data
-  const formData = {
-    email: emailInput.value.trim(),
-    password: passwordInput.value
-  };
-  
-  try {
-    const response = await fetch('/api/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(formData)
-    });
-    
-    const result = await response.json();
-    
-    if (response.ok) {
-      window.location.href = '/';
-    } else {
-      formErrorEl.textContent = result.message || 'Email atau password salah';
-      formErrorEl.style.display = 'block';
-    }
-  } catch (error) {
-    console.error('Error:', error);
-    formErrorEl.textContent = 'Terjadi kesalahan jaringan';
-    formErrorEl.style.display = 'block';
-  }
+
+  loginForm.submit();
 });

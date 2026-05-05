@@ -5,6 +5,7 @@
   <link rel="stylesheet" href="/css/register.css">
 </head>
 <body>
+  <?php $errorMessage = $errorMessage ?? ''; $fullname = $fullname ?? ''; $email = $email ?? ''; ?>
   <div class="register-container">
     <div class="register-card">
       <div class="card-header">
@@ -12,7 +13,7 @@
         <p>Join Next Move and discover your career path</p>
       </div>
 
-      <form id="registerForm" class="register-form">
+      <form id="registerForm" class="register-form" action="/registers" method="POST">
         <div class="form-group">
           <label for="fullname">Full Name</label>
           <input 
@@ -20,6 +21,7 @@
             id="fullname" 
             name="fullname" 
             placeholder="John Doe"
+            value="<?= htmlspecialchars($fullname) ?>"
             required
           >
           <span class="error-message" id="fullnameError"></span>
@@ -32,6 +34,7 @@
             id="email" 
             name="email" 
             placeholder="you@example.com"
+            value="<?= htmlspecialchars($email) ?>"
             required
           >
           <span class="error-message" id="emailError"></span>
@@ -63,7 +66,7 @@
           <input 
             type="password" 
             id="confirm-password" 
-            name="confirm-password" 
+            name="confirm_password" 
             placeholder="Confirm your password"
             required
           >
@@ -83,7 +86,11 @@
           <span class="error-message" id="termsError"></span>
         </div>
 
-        <div id="formError" class="error-message" style="text-align: center; display: none; margin-bottom: 1rem;"></div>
+        <?php if (!empty($errorMessage)): ?>
+          <div id="formError" class="error-message" style="text-align: center; display: block; margin-bottom: 1rem;"><?= htmlspecialchars($errorMessage) ?></div>
+        <?php else: ?>
+          <div id="formError" class="error-message" style="text-align: center; display: none; margin-bottom: 1rem;"></div>
+        <?php endif; ?>
 
         <button type="submit" class="submit-btn">Create Account</button>
       </form>

@@ -30,7 +30,8 @@
         <div class="title-2">Pilih satu bidang yang sesuai dengan minatmu</div>
     </div>
 
-    <div class="steps">
+    <form id="interestForm" action="/interest/save" method="POST">
+      <div class="steps">
 <?php
 $count = 0;
 foreach ($interests as $interest):
@@ -44,13 +45,15 @@ foreach ($interests as $interest):
         <p><?= htmlspecialchars($interest['description']) ?></p>
     </div>
 <?php endforeach; ?>
-</div>
+      </div>
+      <input type="hidden" name="interest_id" id="interest_id" value="">
 
 <hr>
-    <div class="footer-nav">
-<a href="/" class="btn-back">Back</a>
-<a href="/skills" class="btn-next">Next</a>
-</div>
+      <div class="footer-nav">
+        <a href="/" class="btn-back">Back</a>
+        <button type="submit" class="btn-next">Next</button>
+      </div>
+    </form>
 
 </div>
 

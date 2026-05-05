@@ -10,30 +10,21 @@ class RegisterController
 
     public function store()
     {
-        header('Content-Type: application/json');
-        
-        $data = json_decode(file_get_contents('php://input'), true);
+        $fullname = trim($_POST['fullname'] ?? '');
+        $email = trim($_POST['email'] ?? '');
+        $password = $_POST['password'] ?? '';
+        $confirm_password = $_POST['confirm_password'] ?? '';
 
-        if (!$data) {
-            http_response_code(400);
-            echo json_encode(['success' => false, 'message' => 'Format data tidak valid']);
-            return;
-        }
-
-        $fullname = trim($data['fullname'] ?? '');
-        $email = trim($data['email'] ?? '');
-        $password = $data['password'] ?? '';
-        $confirm_password = $data['confirm_password'] ?? '';
+        $errorMessage = '';
 
         if (empty($fullname) || empty($email) || empty($password)) {
-            http_response_code(400);
-            echo json_encode(['success' => false, 'message' => 'Semua kolom harus diisi']);
-            return;
+            $errorMessage = 'Semua kolom harus diisi';
+        } elseif ($password !== $confirm_password) {
+            $errorMessage = 'Password tidak cocok';
         }
 
-        if ($password !== $confirm_password) {
-            http_response_code(400);
-            echo json_encode(['success' => false, 'message' => 'Password tidak cocok']);
+        if ($errorMessage !== '') {
+            require_once '../app/views/registers/register.php';
             return;
         }
 
@@ -41,23 +32,23 @@ class RegisterController
         $userModel = new \User();
 
         if ($userModel->checkExists($fullname, $email)) {
-            http_response_code(409);
-            echo json_encode(['success' => false, 'message' => 'Username atau Email sudah terdaftar']);
+            $errorMessage = 'Username atau Email sudah terdaftar';
+            require_once '../app/views/registers/register.php';
             return;
         }
 
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-
         $userId = $userModel->create($fullname, $email, $hashedPassword);
-        
+
         if ($userId) {
             $_SESSION['user_id'] = $userId;
             $_SESSION['user_name'] = $fullname;
-            echo json_encode(['success' => true, 'message' => 'Registrasi berhasil']);
-        } else {
-            http_response_code(500);
-            echo json_encode(['success' => false, 'message' => 'Gagal menyimpan ke database']);
+            header('Location: /');
+            exit;
         }
+
+        $errorMessage = 'Gagal menyimpan ke database';
+        require_once '../app/views/registers/register.php';
     }
 }
 

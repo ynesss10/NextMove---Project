@@ -18,7 +18,10 @@ if (!errorMsg) {
   footerNav.insertBefore(errorMsg, btnNext);
 }
 
-btnNext.addEventListener("click", async (e) => {
+const interestForm = document.getElementById('interestForm');
+const interestInput = document.getElementById('interest_id');
+
+btnNext.addEventListener("click", (e) => {
   const activeCard = document.querySelector(".card.active");
   
   if (!activeCard) {
@@ -30,34 +33,7 @@ btnNext.addEventListener("click", async (e) => {
   } else {
     e.preventDefault();
     const interestId = activeCard.getAttribute("data-id");
-    
-    try {
-      const response = await fetch('/api/interest/save', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ interest_id: interestId })
-      });
-
-      const data = await response.json();
-
-      if (data.success) {
-        window.location.href = '/skills';
-      } else {
-        errorMsg.textContent = data.message || 'Terjadi kesalahan';
-        errorMsg.classList.add("show");
-        setTimeout(() => {
-          errorMsg.classList.remove("show");
-        }, 3000);
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      errorMsg.textContent = 'Terjadi kesalahan saat menyimpan pilihan';
-      errorMsg.classList.add("show");
-      setTimeout(() => {
-        errorMsg.classList.remove("show");
-      }, 3000);
-    }
+    interestInput.value = interestId;
+    interestForm.submit();
   }
 });

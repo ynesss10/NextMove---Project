@@ -13,7 +13,7 @@ $router->add('GET', '/', 'LandingController', 'landingView');
 
 // Interest
 $router->add('GET', '/interests', 'InterestController', 'interest');
-$router->add('POST', '/api/interest/save', 'InterestController', 'saveInterest');
+$router->add('POST', '/interest/save', 'InterestController', 'saveInterest');
 
 // Daftar => index
 // Tambah => create
@@ -22,16 +22,16 @@ $router->add('POST', '/api/interest/save', 'InterestController', 'saveInterest')
 
 // Skill
 $router->add('GET', '/skills', 'SkillController', 'skill');
-$router->add('POST', '/api/skill/save', 'SkillController', 'saveSkill');
+$router->add('POST', '/skill/save', 'SkillController', 'saveSkill');
 
 // Result
 $router->add('GET', '/results', 'ResultController', 'result');
 
 $router->add('GET', '/registers', 'RegisterController', 'register');
-$router->add('POST', '/api/register', 'RegisterController', 'store');
+$router->add('POST', '/registers', 'RegisterController', 'store');
 
 $router->add('GET', '/logins', 'LoginController', 'login');
-$router->add('POST', '/api/login', 'LoginController', 'authenticate');
+$router->add('POST', '/logins', 'LoginController', 'authenticate');
 
 $router->add('GET', '/logout', 'LogoutController', 'logout');
 

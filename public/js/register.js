@@ -120,7 +120,7 @@ confirmPasswordInput.addEventListener('blur', validateConfirmPassword);
 termsInput.addEventListener('change', validateTerms);
 
 
-registerForm.addEventListener('submit', async (e) => {
+registerForm.addEventListener('submit', (e) => {
   e.preventDefault();
   formErrorEl.textContent = '';
   formErrorEl.style.display = 'none';
@@ -134,35 +134,6 @@ registerForm.addEventListener('submit', async (e) => {
   if (!isFullnameValid || !isEmailValid || !isPasswordValid || !isConfirmPasswordValid || !isTermsValid) {
     return;
   }
-  
- 
-  const formData = {
-    fullname: fullnameInput.value.trim(),
-    email: emailInput.value.trim(),
-    password: passwordInput.value,
-    confirm_password: confirmPasswordInput.value
-  };
-  
-  try {
-    const response = await fetch('/api/register', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(formData)
-    });
-    
-    const result = await response.json();
-    
-    if (response.ok) {
-      window.location.href = '/';
-    } else {
-      formErrorEl.textContent = result.message || 'Terjadi kesalahan saat registrasi';
-      formErrorEl.style.display = 'block';
-    }
-  } catch (error) {
-    console.error('Error:', error);
-    formErrorEl.textContent = 'Terjadi kesalahan jaringan';
-    formErrorEl.style.display = 'block';
-  }
+
+  registerForm.submit();
 });

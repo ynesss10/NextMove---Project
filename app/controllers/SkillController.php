@@ -50,32 +50,22 @@ class SkillController
     public function saveSkill()
     {
         if (!isset($_SESSION['user_id'])) {
-            header('Content-Type: application/json');
-            http_response_code(401);
-            echo json_encode(['success' => false, 'message' => 'Unauthorized']);
+            header('Location: /logins');
             exit;
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $data = json_decode(file_get_contents('php://input'), true);
-            
-            if (!isset($data['skill_id'])) {
-                header('Content-Type: application/json');
-                http_response_code(400);
-                echo json_encode(['success' => false, 'message' => 'Skill ID is required']);
+            if (!isset($_POST['skill_id'])) {
+                header('Location: /skills');
                 exit;
             }
 
-            $_SESSION['selected_skill'] = $data['skill_id'];
-
-            header('Content-Type: application/json');
-            echo json_encode(['success' => true, 'message' => 'Skill saved']);
+            $_SESSION['selected_skill'] = $_POST['skill_id'];
+            header('Location: /results');
             exit;
         }
 
-        header('Content-Type: application/json');
-        http_response_code(405);
-        echo json_encode(['success' => false, 'message' => 'Method not allowed']);
+        header('Location: /skills');
         exit;
     }
 }
