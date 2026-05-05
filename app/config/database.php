@@ -116,7 +116,7 @@ class Database {
             ON DUPLICATE KEY UPDATE name = VALUES(name), description = VALUES(description)");
 
         $conn->query("INSERT INTO careers (id, name, description, interest_id, skill_id, details) VALUES
-                (1, 'Junior Programmer', 'Membuat dan menguji kode program sederhana.', 1, 1, 'Berfokus pada logika dasar pemrograman dan pembuatan aplikasi sederhana.'),
+                (1, 'Software Developer', 'Membuat dan menguji kode program.', 1, 1, 'Berfokus pada logika dasar pemrograman dan pembuatan aplikasi sederhana.'),
                 (2, 'Network Administrator', 'Mengelola dan memelihara jaringan komputer.', 1, 2, 'Menjaga koneksi jaringan dan performa sistem informasi.'),
                 (3, 'Digital Data Operator', 'Mengelola data digital untuk kebutuhan analisis.', 1, 3, 'Mengumpulkan, memproses, dan menyajikan data dalam format digital.'),
                 (4, 'Asisten Klinis', 'Memberi dukungan komunikasi kepada pasien dan tim medis.', 2, 4, 'Berinteraksi secara profesional dan empatik dengan pasien.'),

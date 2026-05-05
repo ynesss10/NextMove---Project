@@ -88,7 +88,7 @@ INSERT INTO skills (name, description) VALUES
 ('Kolaborasi proyek', 'Bekerja sama dalam tim untuk menyelesaikan proyek teknis.');
 
 INSERT INTO careers (name, description, interest_id, skill_id, details) VALUES
-('Junior Programmer', 'Membuat dan menguji kode program sederhana.', 1, 1, 'Berfokus pada logika dasar pemrograman dan pembuatan aplikasi sederhana.'),
+('Software Developer', 'Membuat dan menguji kode program sederhana.', 1, 1, 'Berfokus pada logika dasar pemrograman dan pembuatan aplikasi sederhana.'),
 ('Network Administrator', 'Mengelola dan memelihara jaringan komputer.', 1, 2, 'Menjaga koneksi jaringan dan performa sistem informasi.'),
 ('Digital Data Operator', 'Mengelola data digital untuk kebutuhan analisis.', 1, 3, 'Mengumpulkan, memproses, dan menyajikan data dalam format digital.'),
 ('Asisten Klinis', 'Memberi dukungan komunikasi kepada pasien dan tim medis.', 2, 4, 'Berinteraksi secara profesional dan empatik dengan pasien.'),
