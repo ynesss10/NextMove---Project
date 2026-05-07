@@ -1,71 +1,46 @@
-const loginForm = document.getElementById('loginForm');
-const emailInput = document.getElementById('email');
-const passwordInput = document.getElementById('password');
+// Toggle password visibility
 const togglePasswordBtn = document.getElementById('togglePassword');
-const formErrorEl = document.getElementById('formError');
+if (togglePasswordBtn) {
+  togglePasswordBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const passwordInput = document.getElementById('password');
+    const type = passwordInput.type === 'password' ? 'text' : 'password';
+    passwordInput.type = type;
+    togglePasswordBtn.classList.toggle('active');
+  });
+}
 
-
-togglePasswordBtn.addEventListener('click', (e) => {
-  e.preventDefault();
-  const type = passwordInput.type === 'password' ? 'text' : 'password';
-  passwordInput.type = type;
-  togglePasswordBtn.classList.toggle('active');
-});
-
-
-const validateEmail = () => {
-  const email = emailInput.value.trim();
-  const errorEl = document.getElementById('emailError');
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  
-  if (!email) {
-    errorEl.textContent = 'Email harus diisi';
-    return false;
-  }
-  
-  if (!emailRegex.test(email)) {
-    errorEl.textContent = 'Format email tidak valid';
-    return false;
-  }
-  
-  errorEl.textContent = '';
-  return true;
-};
-
-const validatePassword = () => {
-  const password = passwordInput.value;
-  const errorEl = document.getElementById('passwordError');
-  
-  if (!password) {
-    errorEl.textContent = 'Password harus diisi';
-    return false;
-  }
-  
-  if (password.length < 8) {
-    errorEl.textContent = 'Password minimal 8 karakter';
-    return false;
-  }
-  
-  errorEl.textContent = '';
-  return true;
-};
-
-
-emailInput.addEventListener('blur', validateEmail);
-passwordInput.addEventListener('blur', validatePassword);
-
-
-loginForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  formErrorEl.textContent = '';
-  formErrorEl.style.display = 'none';
-
-  const isEmailValid = validateEmail();
-  const isPasswordValid = validatePassword();
-  
-  if (!isEmailValid || !isPasswordValid) {
-    return;
-  }
-
-  loginForm.submit();
-});
+// API Login
+const loginForm = document.getElementById('loginForm');
+if (loginForm) {
+  loginForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const formError = document.getElementById('formError');
+    
+    const formData = new FormData();
+    formData.append('email', email);
+    formData.append('password', password);
+    
+    try {
+      const response = await fetch('/api/login', {
+        method: 'POST',
+        body: formData
+      });
+      
+      const data = await response.json();
+      
+      if (data.success) {
+        window.location.href = data.redirect;
+      } else {
+        formError.textContent = data.message;
+        formError.style.display = 'block';
+      }
+    } catch (error) {
+      formError.textContent = 'Terjadi kesalahan, coba lagi';
+      formError.style.display = 'block';
+    }
+  });
+}

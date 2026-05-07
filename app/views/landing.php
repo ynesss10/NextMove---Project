@@ -71,6 +71,29 @@
   <?php endif; ?>
 </div>
 
+<script>
+  // Handle logout
+  const logoutBtn = document.querySelector('.logout-button');
+  if (logoutBtn) {
+    logoutBtn.addEventListener('click', async (e) => {
+      e.preventDefault();
+      
+      try {
+        const response = await fetch('/api/logout', {
+          method: 'POST'
+        });
+        
+        const data = await response.json();
+        
+        if (data.success) {
+          window.location.href = data.redirect;
+        }
+      } catch (error) {
+        window.location.href = '/logout';
+      }
+    });
+  }
+</script>
 
 </body>
 </html>

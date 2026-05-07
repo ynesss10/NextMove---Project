@@ -31,6 +31,9 @@
 
     <form id="skillForm" action="/skill/save" method="POST">
       <div class="steps">
+<?php if (empty($skills)): ?>
+        <p>Data skill tidak tersedia. Pastikan database sudah diisi dengan data skills.</p>
+<?php else: ?>
 <?php
 $count = 0;
 foreach ($skills as $skill):
@@ -44,6 +47,7 @@ foreach ($skills as $skill):
             <p><?= htmlspecialchars($skill['description']) ?></p>
         </div>
 <?php endforeach; ?>
+<?php endif; ?>
       </div>
       <input type="hidden" name="skill_id" id="skill_id" value="">
 
