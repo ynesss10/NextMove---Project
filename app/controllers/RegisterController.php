@@ -47,7 +47,7 @@ class RegisterController
         if ($userId) {
             $_SESSION['user_id'] = $userId;
             $_SESSION['user_name'] = $fullname;
-            header('Location: ' . $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/');
+            header('Location: /');
             exit;
         }
 

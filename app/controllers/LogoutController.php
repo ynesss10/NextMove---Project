@@ -6,7 +6,7 @@ class LogoutController {
         session_unset();
         session_destroy();
         
-        header('Location: ' . $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/');
+        header('Location: /');
         exit;
     }
 
