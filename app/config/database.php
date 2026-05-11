@@ -144,5 +144,54 @@ class Database {
                 (26, 'Engineer Sistem', 'Merancang dan mengembangkan sistem teknis.', 9, 26, 'Menyusun solusi teknis dan membangun sistem yang handal.'),
                 (27, 'Koordinator Proyek Teknik', 'Bekerja sama dalam tim untuk menyelesaikan proyek teknis.', 9, 27, 'Mengorganisir tim dan kolaborasi proyek teknik yang efektif.')
             ON DUPLICATE KEY UPDATE name = VALUES(name), description = VALUES(description), interest_id = VALUES(interest_id), skill_id = VALUES(skill_id), details = VALUES(details)");
+
+        $conn->query("CREATE TABLE IF NOT EXISTS career_req_skills (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            career_id INT NOT NULL,
+            skill_name VARCHAR(100) NOT NULL,
+            skill_desc TEXT NOT NULL,
+            UNIQUE KEY unique_skill (career_id, skill_name),
+            FOREIGN KEY (career_id) REFERENCES careers(id) ON DELETE CASCADE
+        )");
+
+        $conn->query("CREATE TABLE IF NOT EXISTS career_educations (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            career_id INT NOT NULL,
+            education_path VARCHAR(255) NOT NULL,
+            UNIQUE KEY unique_education (career_id, education_path),
+            FOREIGN KEY (career_id) REFERENCES careers(id) ON DELETE CASCADE
+        )");
+
+        $conn->query("INSERT INTO career_req_skills (career_id, skill_name, skill_desc) VALUES
+            (1, 'Bahasa Pemrograman', 'Java, Python, C++, JavaScript'),
+            (1, 'Database', 'MySQL, PostgreSQL, MongoDB'),
+            (1, 'Framework', 'React, Node.js, Spring Boot'),
+            (1, 'Version Control', 'Git, GitHub'),
+            (2, 'Sistem Operasi', 'Linux, Windows Server'),
+            (2, 'Jaringan', 'TCP/IP, DNS, DHCP, VPN'),
+            (2, 'Keamanan', 'Firewall, IDS/IPS'),
+            (3, 'Analisis Data', 'Excel, SQL, Python (Pandas)'),
+            (3, 'Visualisasi Data', 'Tableau, Power BI'),
+            (4, 'Komunikasi', 'Empati, Pendengar Aktif, Berbicara Jelas'),
+            (4, 'Administrasi', 'Pencatatan Medis dasar, Penjadwalan'),
+            (5, 'Observasi', 'Pengamatan Gejala Awal, Deteksi Dini'),
+            (5, 'Pencatatan', 'Rekam Medis Elektronik, Dokumentasi Klinis')
+        ON DUPLICATE KEY UPDATE skill_desc = VALUES(skill_desc)");
+
+        $conn->query("INSERT INTO career_educations (career_id, education_path) VALUES
+            (1, 'Sarjana Teknik Informatika/Komputer'),
+            (1, 'Diploma Teknik Informatika'),
+            (1, 'Bootcamp Programming'),
+            (1, 'Self-learning melalui online courses'),
+            (2, 'Sarjana Teknik Komputer/Jaringan'),
+            (2, 'Sertifikasi Jaringan (CCNA, CompTIA Network+)'),
+            (2, 'Diploma Teknik Komputer'),
+            (3, 'Sarjana Sistem Informasi/Statistika'),
+            (3, 'Bootcamp Data Science/Analytics'),
+            (4, 'Diploma Keperawatan/Kebidanan'),
+            (4, 'Sertifikasi Asisten Tenaga Kesehatan'),
+            (5, 'Sarjana Kedokteran/Kesehatan Masyarakat'),
+            (5, 'Pelatihan Asesmen Klinis')
+        ON DUPLICATE KEY UPDATE education_path = VALUES(education_path)");
     }
 }

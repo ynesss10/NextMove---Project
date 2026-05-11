@@ -37,7 +37,7 @@ const showToast = (message, type = 'success') => {
 };
 
 
-const saveCareer = (careerName, description) => {
+const saveCareer = (careerId, careerName, description) => {
   let savedCareers = JSON.parse(localStorage.getItem('savedCareers')) || [];
   
   const isAlreadySaved = savedCareers.some(career => career.name === careerName);
@@ -46,6 +46,7 @@ const saveCareer = (careerName, description) => {
 
     savedCareers.push({
       id: Date.now(),
+      career_id: careerId,
       name: careerName,
       description: description
     });
@@ -65,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       
-      let careerName, description;
+      let careerName, description, careerId;
       const card = btn.closest('.card');
       
       if (card) {
@@ -76,8 +77,10 @@ document.addEventListener('DOMContentLoaded', () => {
         description = document.querySelector('.career-section p').textContent;
       }
       
+      careerId = btn.getAttribute('data-id');
+      
    
-      const isSaved = saveCareer(careerName, description);
+      const isSaved = saveCareer(careerId, careerName, description);
       
       if (isSaved) {
    

@@ -30,36 +30,30 @@
         <div class="container">
       
             <div class="career-header">
-                <h1 class="career-title">Software Developer</h1>
-                <p class="career-subtitle">Bidang Teknologi Informasi</p>
+                <h1 class="career-title"><?= htmlspecialchars($career['name']) ?></h1>
+                <p class="career-subtitle">Bidang <?= htmlspecialchars($career['bidang']) ?></p>
             </div>
 
     
             <div class="career-section">
                 <h2>Deskripsi Karier</h2>
-                <p>Software Developer adalah profesional yang bertanggung jawab untuk merancang, mengembangkan, dan memelihara aplikasi perangkat lunak. Mereka bekerja dengan berbagai bahasa pemrograman dan teknologi untuk menciptakan solusi digital yang inovatif.</p>
+                <p><?= nl2br(htmlspecialchars($career['description'])) ?></p>
             </div>
 
        
             <div class="career-section">
                 <h2>Keterampilan yang Dibutuhkan</h2>
                 <div class="skills-grid">
-                    <div class="skill-item">
-                        <span class="skill-name">Bahasa Pemrograman</span>
-                        <span class="skill-desc">Java, Python, C++, JavaScript</span>
-                    </div>
-                    <div class="skill-item">
-                        <span class="skill-name">Database</span>
-                        <span class="skill-desc">MySQL, PostgreSQL, MongoDB</span>
-                    </div>
-                    <div class="skill-item">
-                        <span class="skill-name">Framework</span>
-                        <span class="skill-desc">React, Node.js, Spring Boot</span>
-                    </div>
-                    <div class="skill-item">
-                        <span class="skill-name">Version Control</span>
-                        <span class="skill-desc">Git, GitHub</span>
-                    </div>
+                    <?php if (!empty($skills)): ?>
+                        <?php foreach ($skills as $s): ?>
+                        <div class="skill-item">
+                            <span class="skill-name"><?= htmlspecialchars($s['skill_name']) ?></span>
+                            <span class="skill-desc"><?= htmlspecialchars($s['skill_desc']) ?></span>
+                        </div>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <p>Belum ada data keterampilan.</p>
+                    <?php endif; ?>
                 </div>
             </div>
 
@@ -67,17 +61,20 @@
             <div class="career-section">
                 <h2>Jalur Pendidikan</h2>
                 <ul class="education-list">
-                    <li>Sarjana Teknik Informatika/Komputer</li>
-                    <li>Diploma Teknik Informatika</li>
-                    <li>Bootcamp Programming</li>
-                    <li>Self-learning melalui online courses</li>
+                    <?php if (!empty($educations)): ?>
+                        <?php foreach ($educations as $edu): ?>
+                            <li><?= htmlspecialchars($edu['education_path']) ?></li>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <li>Belum ada data jalur pendidikan.</li>
+                    <?php endif; ?>
                 </ul>
             </div>
 
      
             <div class="action-buttons">
                 <a href="/results" class="btn btn-back">Kembali ke Hasil</a>
-                <button class="btn btn-save">Simpan Karier</button>
+                <button class="btn btn-save" data-id="<?= htmlspecialchars($career['id']) ?>">Simpan Karier</button>
             </div>
         </div>
     </div>

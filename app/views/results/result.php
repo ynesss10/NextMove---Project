@@ -58,8 +58,8 @@
         <div class="card-header"><?= htmlspecialchars($career['name']) ?></div>
         <div class="card-body"><?= htmlspecialchars($career['description']) ?></div>
         <div class="card-actions">
-          <a href="/details" class="btn btn-view">View Detail</a>
-          <button class="btn btn-save">Save</button>
+          <a href="/details?id=<?= $career['id'] ?>" class="btn btn-view">View Detail</a>
+          <button class="btn btn-save" data-id="<?= $career['id'] ?>">Save</button>
         </div>
       </div>
 <?php endforeach; ?>
