@@ -31,13 +31,23 @@
       
             <div class="career-header">
                 <h1 class="career-title"><?= htmlspecialchars($career['name']) ?></h1>
-                <p class="career-subtitle">Bidang <?= htmlspecialchars($career['bidang']) ?></p>
+                <p class="career-subtitle">
+                    Bidang <?= htmlspecialchars($career['bidang']) ?>
+                    <?php if (!empty($career['skill_name'])): ?>
+                        &bull; Keterampilan <?= htmlspecialchars($career['skill_name']) ?>
+                    <?php endif; ?>
+                </p>
             </div>
 
     
             <div class="career-section">
                 <h2>Deskripsi Karier</h2>
                 <p><?= nl2br(htmlspecialchars($career['description'])) ?></p>
+            </div>
+
+            <div class="career-section">
+                <h2>Informasi Tambahan</h2>
+                <p><?= nl2br(htmlspecialchars($career['details'])) ?></p>
             </div>
 
        

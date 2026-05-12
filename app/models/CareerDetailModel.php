@@ -13,12 +13,13 @@ class CareerDetailModel {
     }
 
     public function getCareerById($id) {
-        $stmt = $this->conn->prepare("
-            SELECT c.*, i.name AS bidang 
-            FROM careers c 
-            JOIN interests i ON c.interest_id = i.id 
-            WHERE c.id = ?
-        ");
+        $stmt = $this->conn->prepare(
+            "SELECT c.*, i.name AS bidang, s.name AS skill_name " .
+            "FROM careers c " .
+            "JOIN interests i ON c.interest_id = i.id " .
+            "JOIN skills s ON c.skill_id = s.id " .
+            "WHERE c.id = ?"
+        );
         $stmt->bind_param("i", $id);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -26,12 +27,13 @@ class CareerDetailModel {
     }
 
     public function getCareerByName($name) {
-        $stmt = $this->conn->prepare("
-            SELECT c.*, i.name AS bidang 
-            FROM careers c 
-            JOIN interests i ON c.interest_id = i.id 
-            WHERE c.name = ?
-        ");
+        $stmt = $this->conn->prepare(
+            "SELECT c.*, i.name AS bidang, s.name AS skill_name " .
+            "FROM careers c " .
+            "JOIN interests i ON c.interest_id = i.id " .
+            "JOIN skills s ON c.skill_id = s.id " .
+            "WHERE c.name = ?"
+        );
         $stmt->bind_param("s", $name);
         $stmt->execute();
         $result = $stmt->get_result();
