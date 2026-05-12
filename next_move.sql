@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 11, 2026 at 12:56 PM
+-- Generation Time: May 12, 2026 at 05:06 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -17,8 +17,6 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
-CREATE DATABASE IF NOT EXISTS `next_move`;
-USE `next_move`;
 --
 -- Database: `next_move`
 --
@@ -101,7 +99,72 @@ INSERT INTO `career_educations` (`id`, `career_id`, `education_path`) VALUES
 (10, 4, 'Diploma Keperawatan/Kebidanan'),
 (11, 4, 'Sertifikasi Asisten Tenaga Kesehatan'),
 (13, 5, 'Pelatihan Asesmen Klinis'),
-(12, 5, 'Sarjana Kedokteran/Kesehatan Masyarakat');
+(12, 5, 'Sarjana Kedokteran/Kesehatan Masyarakat'),
+(2380, 6, 'Diploma Rekam Medis'),
+(2381, 6, 'Pelatihan Dokumentasi Kesehatan'),
+(2383, 7, 'Bootcamp UI/UX'),
+(2384, 7, 'Diploma Desain Multimedia'),
+(2382, 7, 'Sarjana Desain Komunikasi Visual'),
+(2385, 8, 'D3 Desain Multimedia'),
+(2387, 8, 'Pelatihan Content Creation'),
+(2386, 8, 'S1 Ilmu Komunikasi'),
+(2390, 9, 'Magang di studio kreatif'),
+(2389, 9, 'Pelatihan Kreativitas dan Konsep'),
+(2388, 9, 'Sarjana Seni Rupa/Desain'),
+(2391, 10, 'D3 Akuntansi'),
+(2392, 10, 'S1 Akuntansi'),
+(2393, 10, 'Sertifikasi Brevet A/B'),
+(2396, 11, 'Pelatihan Analisis Keuangan'),
+(2394, 11, 'S1 Ekonomi'),
+(2395, 11, 'S1 Manajemen Keuangan'),
+(2399, 12, 'Pelatihan Perencanaan Anggaran'),
+(2398, 12, 'S1 Akuntansi'),
+(2397, 12, 'S1 Manajemen'),
+(2401, 13, 'D3 Administrasi Niaga'),
+(2402, 13, 'Pelatihan Komunikasi Bisnis'),
+(2400, 13, 'S1 Komunikasi'),
+(2405, 14, 'Pelatihan Strategi Bisnis'),
+(2404, 14, 'S1 Ekonomi'),
+(2403, 14, 'S1 Manajemen'),
+(2407, 15, 'D3 Manajemen Operasional'),
+(2406, 15, 'S1 Manajemen'),
+(2408, 15, 'Sertifikasi Lean Six Sigma Dasar'),
+(2410, 16, 'D3 Komunikasi'),
+(2411, 16, 'Pelatihan Media dan PR'),
+(2409, 16, 'S1 Hubungan Masyarakat'),
+(2414, 17, 'Magang Content Creation'),
+(2413, 17, 'Pelatihan Media Digital'),
+(2412, 17, 'S1 Ilmu Komunikasi'),
+(2415, 18, 'D3 Sekretaris'),
+(2417, 18, 'Pelatihan Manajemen Informasi'),
+(2416, 18, 'S1 Ilmu Perpustakaan/Informasi'),
+(2418, 19, 'D3 Perhotelan'),
+(2420, 19, 'Pelatihan Customer Experience'),
+(2419, 19, 'S1 Manajemen'),
+(2423, 20, 'Pelatihan Intercultural Communication'),
+(2422, 20, 'S1 Bahasa Asing'),
+(2421, 20, 'S1 Hubungan Internasional'),
+(2424, 21, 'D3 Perhotelan'),
+(2425, 21, 'S1 Manajemen'),
+(2426, 21, 'Sertifikasi Hospitality Management'),
+(2429, 22, 'Pelatihan Metodologi Penelitian'),
+(2428, 22, 'S1 Antropologi'),
+(2427, 22, 'S1 Sosiologi'),
+(2432, 23, 'Pelatihan Analisis Kebijakan'),
+(2431, 23, 'S1 Administrasi Publik'),
+(2430, 23, 'S1 Ilmu Politik'),
+(2435, 24, 'Pelatihan Statistik Sosial'),
+(2434, 24, 'S1 Psikologi'),
+(2433, 24, 'S1 Sosiologi'),
+(2436, 25, 'D3 Teknik'),
+(2438, 25, 'Pelatihan K3 dan Keselamatan Kerja'),
+(2437, 25, 'S1 Teknik'),
+(2439, 26, 'S1 Teknik Elektro'),
+(2440, 26, 'S1 Teknik Informatika'),
+(2441, 26, 'Sertifikasi Sistem dan Jaringan'),
+(2444, 27, 'Pelatihan manajemen proyek teknik'),
+(2443, 27, 'S1 Manajemen Proyek'),
+(2442, 27, 'S1 Teknik');
 
 -- --------------------------------------------------------
 
@@ -133,7 +196,72 @@ INSERT INTO `career_req_skills` (`id`, `career_id`, `skill_name`, `skill_desc`) 
 (10, 4, 'Komunikasi', 'Empati, Pendengar Aktif, Berbicara Jelas'),
 (11, 4, 'Administrasi', 'Pencatatan Medis dasar, Penjadwalan'),
 (12, 5, 'Observasi', 'Pengamatan Gejala Awal, Deteksi Dini'),
-(13, 5, 'Pencatatan', 'Rekam Medis Elektronik, Dokumentasi Klinis');
+(13, 5, 'Pencatatan', 'Rekam Medis Elektronik, Dokumentasi Klinis'),
+(2380, 6, 'Dukungan Dokumentasi', 'Standarisasi catatan medis, pengarsipan'),
+(2381, 6, 'Ketelitian Data', 'Validasi dan koreksi catatan medis'),
+(2382, 7, 'Desain UI', 'Wireframe, prototyping, Figma/Adobe XD'),
+(2383, 7, 'UX Research', 'User testing, usability studies'),
+(2384, 7, 'Visual Design', 'Tipografi, layout, visual hierarchy'),
+(2385, 8, 'Konten Digital', 'Penulisan naskah, storytelling visual'),
+(2386, 8, 'Editing Multimedia', 'Editing foto, video, dan audio sederhana'),
+(2387, 8, 'Platform Sosial Media', 'Strategi publikasi dan penjadwalan konten'),
+(2388, 9, 'Kreativitas Konsep', 'Pengembangan ide original dan konsep visual'),
+(2389, 9, 'Presentasi Ide', 'Menyajikan konsep dengan jelas kepada tim'),
+(2390, 9, 'Riset Tren', 'Menganalisis gaya dan kebutuhan target audiens'),
+(2391, 10, 'Pembukuan', 'Pencatatan transaksi keuangan harian'),
+(2392, 10, 'Pelaporan Keuangan', 'Laporan laba rugi dan neraca'),
+(2393, 10, 'Excel', 'Penggunaan rumus, tabel pivot, dan grafik'),
+(2394, 11, 'Analisis Laporan', 'Menganalisis rasio keuangan dan tren'),
+(2395, 11, 'Peramalan', 'Membuat proyeksi kas dan anggaran'),
+(2396, 11, 'Audit Dasar', 'Memeriksa kesesuaian dokumen dan catatan'),
+(2397, 12, 'Perencanaan Anggaran', 'Menentukan alokasi biaya dan target'),
+(2398, 12, 'Kontrol Biaya', 'Memantau realisasi dan penyimpangan anggaran'),
+(2399, 12, 'Penganggaran', 'Membuat rencana anggaran operasional'),
+(2400, 13, 'Komunikasi Bisnis', 'Menulis memo, email, dan presentasi formal'),
+(2401, 13, 'Relasi Klien', 'Menjaga hubungan profesional dengan pelanggan'),
+(2402, 13, 'Public Speaking', 'Berbicara di depan pimpinan dan tim'),
+(2403, 14, 'Perencanaan Strategi', 'Menetapkan tujuan dan strategi jangka panjang'),
+(2404, 14, 'Analisis Pasar', 'Menganalisis peluang dan ancaman bisnis'),
+(2405, 14, 'Pengambilan Keputusan', 'Memilih aksi terbaik berdasarkan data'),
+(2406, 15, 'Manajemen Operasional', 'Mengelola proses layanan dan produksi'),
+(2407, 15, 'Koordinasi Tim', 'Menyelaraskan pekerjaan tim lintas fungsi'),
+(2408, 15, 'Pemecahan Masalah', 'Menyelesaikan hambatan operasional secara cepat'),
+(2409, 16, 'Public Relations', 'Mengelola hubungan media dan citra organisasi'),
+(2410, 16, 'Presentasi', 'Menyampaikan pesan kepada publik dengan jelas'),
+(2411, 16, 'Penulisan Siaran Pers', 'Menyusun materi komunikasi resmi'),
+(2412, 17, 'Konten Kreatif', 'Membuat teks, gambar, dan video yang menarik'),
+(2413, 17, 'Pengelolaan Media', 'Merencanakan konten untuk platform digital'),
+(2414, 17, 'Editing Video', 'Mengedit klip video untuk publikasi online'),
+(2415, 18, 'Manajemen Informasi', 'Mengatur data dan dokumen internal'),
+(2416, 18, 'Koordinasi Kantor', 'Menghubungkan departemen dan menyampaikan informasi'),
+(2417, 18, 'Analisis Data', 'Mengolah informasi menjadi insight yang jelas'),
+(2418, 19, 'Pelayanan Pelanggan', 'Melayani tamu dengan ramah dan cepat'),
+(2419, 19, 'Penyelesaian Keluhan', 'Menangani feedback dengan solusi tepat'),
+(2420, 19, 'Pemahaman Pengalaman', 'Mengenali kebutuhan pelanggan dan preferensi'),
+(2421, 20, 'Komunikasi Lintas Budaya', 'Berinteraksi dengan berbagai latar belakang'),
+(2422, 20, 'Event Diplomasi', 'Menyelenggarakan kegiatan hubungan budaya'),
+(2423, 20, 'Bahasa Asing', 'Mampu berkomunikasi dasar dengan bahasa lain'),
+(2424, 21, 'Manajemen Layanan', 'Menyusun standard operating procedures layanan'),
+(2425, 21, 'Kontrol Kualitas', 'Memastikan layanan sesuai standar'),
+(2426, 21, 'Kepemimpinan Tim', 'Memimpin tim layanan dan operasional'),
+(2427, 22, 'Riset Sosial', 'Merancang dan melaksanakan survei sosial'),
+(2428, 22, 'Analisis Data Sosial', 'Menafsirkan hasil studi dan statistik'),
+(2429, 22, 'Penulisan Ilmiah', 'Menyusun laporan penelitian sosial'),
+(2430, 23, 'Analisis Kebijakan', 'Mengkaji dampak aturan dan keputusan publik'),
+(2431, 23, 'Penulisan Laporan', 'Menyusun rekomendasi kebijakan tertulis'),
+(2432, 23, 'Statistika dasar', 'Mengolah data untuk mendukung analisis kebijakan'),
+(2433, 24, 'Metode Penelitian', 'Menyusun desain penelitian kuantitatif dan kualitatif'),
+(2434, 24, 'Observasi Lapangan', 'Mengumpulkan data secara langsung dalam konteks sosial'),
+(2435, 24, 'Interpretasi Data', 'Menganalisis temuan penelitian sosial'),
+(2436, 25, 'Teknik Peralatan', 'Memahami perangkat dan instalasi teknis'),
+(2437, 25, 'Troubleshooting', 'Mendiagnosis dan memperbaiki kerusakan lapangan'),
+(2438, 25, 'Keselamatan Kerja', 'Memastikan prosedur K3 terapkan di lokasi kerja'),
+(2439, 26, 'Desain Sistem', 'Menyusun arsitektur sistem teknis'),
+(2440, 26, 'Pengembangan', 'Membuat dan menguji sistem perangkat keras atau lunak'),
+(2441, 26, 'Uji Sistem', 'Melakukan test dan debugging komponen teknis'),
+(2442, 27, 'Manajemen Proyek', 'Menyusun jadwal dan sumber daya proyek teknik'),
+(2443, 27, 'Koordinasi Tim', 'Mengatur komunikasi dan tugas tim proyek'),
+(2444, 27, 'Pengendalian Waktu', 'Memantau tenggat dan penyelesaian milestone');
 
 -- --------------------------------------------------------
 
@@ -236,7 +364,8 @@ INSERT INTO `users` (`id`, `username`, `email`, `password`, `created_at`) VALUES
 (15, 'davinfernandojosan', 'davinjonas@gmail.com', '$2y$10$gTuiXWrkaOD64p6r3wWzUubsltSMuVsN1sS4qAWdkAuV7tiTifW4S', '2026-04-28 05:14:39'),
 (16, 'Junz', 'junz@gmail.com', '$2y$10$4qOnkNHQbaGHE/YECLVXdOhwwVxGbeNMRewxjv6YauATxHLFC3EEy', '2026-05-05 06:11:00'),
 (17, '132432', '1242342211@gmail.com', '$2y$10$bsag0Wkniufzi8rTTjwnRuUBv5yqIRWoP9kqJRZp/XWNaQyCDvAxK', '2026-05-07 06:56:11'),
-(18, 'test', 'test@gmail.com', '$2y$10$NHDPw.na8Lh538saOdwaD.srRsoWEk8ubagEa074pwAxsf9FJF3T.', '2026-05-09 13:36:47');
+(18, 'test', 'test@gmail.com', '$2y$10$NHDPw.na8Lh538saOdwaD.srRsoWEk8ubagEa074pwAxsf9FJF3T.', '2026-05-09 13:36:47'),
+(19, 'davinganteng', 'davinjonas22@gmail.com', '$2y$10$.K5i0GUrDGCZ.N1ISCPhkeZNs69/1bBOiMDPVEZu98p435c62UfM.', '2026-05-12 05:00:22');
 
 -- --------------------------------------------------------
 
@@ -323,13 +452,13 @@ ALTER TABLE `careers`
 -- AUTO_INCREMENT for table `career_educations`
 --
 ALTER TABLE `career_educations`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=729;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6593;
 
 --
 -- AUTO_INCREMENT for table `career_req_skills`
 --
 ALTER TABLE `career_req_skills`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=729;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6593;
 
 --
 -- AUTO_INCREMENT for table `interests`
@@ -347,7 +476,7 @@ ALTER TABLE `skills`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `user_selections`
