@@ -20,7 +20,7 @@
                     <a href="/logout" class="logout-button">Log Out</a>
                 </div>
             <?php else: ?>
-                <a href="/registers" class="help-button">Sign Up</a>
+                <a href="/register" class="help-button">Sign Up</a>
             <?php endif; ?>
         </div>
     </div>
@@ -83,7 +83,7 @@
 
      
             <div class="action-buttons">
-                <a href="/results" class="btn btn-back">Kembali ke Hasil</a>
+                <a href="/result" class="btn btn-back">Kembali ke Hasil</a>
                 <button class="btn btn-save" data-id="<?= htmlspecialchars($career['id']) ?>">Simpan Karier</button>
             </div>
         </div>

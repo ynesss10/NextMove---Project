@@ -5,7 +5,7 @@ class LoginController
 {
     public function login()
     {
-        require_once '../app/views/logins/login.php';
+        require_once '../app/views/login.php';
     }
 
     public function authenticate()
@@ -16,13 +16,13 @@ class LoginController
 
         if (empty($email) || empty($password)) {
             $errorMessage = 'Email dan password harus diisi';
-            require_once '../app/views/logins/login.php';
+            require_once '../app/views/login.php';
             return;
         }
 
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $errorMessage = 'Format email tidak valid';
-            require_once '../app/views/logins/login.php';
+            require_once '../app/views/login.php';
             return;
         }
 
@@ -38,7 +38,7 @@ class LoginController
         }
 
         $errorMessage = 'Email atau password salah';
-        require_once '../app/views/logins/login.php';
+        require_once '../app/views/login.php';
     }
 
     public function apiLogin()

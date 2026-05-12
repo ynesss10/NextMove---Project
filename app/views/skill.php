@@ -18,7 +18,7 @@
           <a href="/logout" class="logout-button">Log Out</a>
         </div>
       <?php else: ?>
-        <a href="/registers" class="help-button">Sign Up</a>
+        <a href="/register" class="help-button">Sign Up</a>
       <?php endif; ?>
     </div>
   </div>
@@ -54,7 +54,7 @@ foreach ($skills as $skill):
 <hr>
 
       <div class="footer-nav">
-        <a href="/interests" class="btn-back">Back</a>
+        <a href="/interest" class="btn-back">Back</a>
         <button type="submit" class="btn-next">Next</button>
       </div>
     </form>

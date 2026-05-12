@@ -6,7 +6,7 @@ class InterestController
     public function interest()
     {
         if (!isset($_SESSION['user_name'])) {
-            header('Location: /logins');
+            header('Location: /login');
             exit;
         }
 
@@ -14,28 +14,28 @@ class InterestController
         $interestModel = new \Interest();
         $interests = $interestModel->getAll();
 
-        require_once '../app/views/interests/interest.php';
+        require_once '../app/views/interest.php';
     }
 
     public function saveInterest()
     {
         if (!isset($_SESSION['user_id'])) {
-            header('Location: /logins');
+            header('Location: /login');
             exit;
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (!isset($_POST['interest_id'])) {
-                header('Location: /interests');
+                header('Location: /interest');
                 exit;
             }
 
             $_SESSION['selected_interest'] = $_POST['interest_id'];
-            header('Location: /skills');
+            header('Location: /skill');
             exit;
         }
 
-        header('Location: /interests');
+        header('Location: /interest');
         exit;
     }
 }

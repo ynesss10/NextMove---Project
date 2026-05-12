@@ -17,7 +17,7 @@
           <a href="/logout" class="logout-button">Log Out</a>
         </div>
       <?php else: ?>
-        <a href="/registers" class="help-button">Sign Up</a>
+        <a href="/register" class="help-button">Sign Up</a>
       <?php endif; ?>
     </div>
   </div>
@@ -65,9 +65,9 @@
     yang cocok untukmu
   </p>
   <?php if(isset($_SESSION['user_name'])): ?>
-    <a href="/interests" class="cta-button">Start Now</a>
+    <a href="/interest" class="cta-button">Start Now</a>
   <?php else: ?>
-    <a href="/logins" class="cta-button">Start Now</a>
+    <a href="/login" class="cta-button">Start Now</a>
   <?php endif; ?>
 </div>
 

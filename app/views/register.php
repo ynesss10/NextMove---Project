@@ -13,7 +13,7 @@
         <p>Join Next Move and discover your career path</p>
       </div>
 
-      <form id="registerForm" class="register-form" action="/registers" method="POST">
+      <form id="registerForm" class="register-form" action="/register" method="POST">
         <div class="form-group">
           <label for="fullname">Full Name</label>
           <input 
@@ -96,7 +96,7 @@
       </form>
 
       <div class="card-footer">
-        <p>Already have an account? <a href="/logins">Sign In</a></p>
+        <p>Already have an account? <a href="/login">Sign In</a></p>
       </div>
     </div>
   </div>

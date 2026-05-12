@@ -5,7 +5,7 @@ class RegisterController
 {
     public function register()
     {
-        require_once '../app/views/registers/register.php';
+        require_once '../app/views/register.php';
     }
 
     public function store()
@@ -28,7 +28,7 @@ class RegisterController
         }
 
         if ($errorMessage !== '') {
-            require_once '../app/views/registers/register.php';
+            require_once '../app/views/register.php';
             return;
         }
 
@@ -37,7 +37,7 @@ class RegisterController
 
         if ($userModel->checkExists($fullname, $email)) {
             $errorMessage = 'Username atau Email sudah terdaftar';
-            require_once '../app/views/registers/register.php';
+            require_once '../app/views/register.php';
             return;
         }
 
@@ -52,7 +52,7 @@ class RegisterController
         }
 
         $errorMessage = 'Gagal menyimpan ke database';
-        require_once '../app/views/registers/register.php';
+        require_once '../app/views/register.php';
     }
 
     public function apiRegister()

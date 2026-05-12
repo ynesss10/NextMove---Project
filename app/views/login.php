@@ -13,7 +13,7 @@
         <p>Login to continue on your career journey</p>
       </div>
 
-      <form id="loginForm" class="register-form" action="/logins" method="POST">
+      <form id="loginForm" class="register-form" action="/login" method="POST">
         <div class="form-group">
           <label for="email">Email Address</label>
           <input type="email" id="email" name="email" placeholder="you@example.com" value="<?= htmlspecialchars($email) ?>" required>
@@ -44,7 +44,7 @@
       </form>
 
       <div class="card-footer">
-        <p>Don't have an account? <a href="/registers">Sign Up</a></p>
+        <p>Don't have an account? <a href="/register">Sign Up</a></p>
       </div>
     </div>
   </div>

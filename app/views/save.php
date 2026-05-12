@@ -18,7 +18,7 @@
           <a href="/logout" class="logout-button">Log Out</a>
         </div>
       <?php else: ?>
-        <a href="/registers" class="help-button">Sign Up</a>
+        <a href="/register" class="help-button">Sign Up</a>
       <?php endif; ?>
     </div>
   </div>
@@ -40,7 +40,7 @@
                 </div>
                 <h3>Belum ada karir yang disimpan</h3>
                 <p>Mulai simpan karir yang menarik untuk dipelajari lebih lanjut</p>
-                <a href="/interests" class="btn btn-explore">Explore Careers</a>
+                <a href="/interest" class="btn btn-explore">Explore Careers</a>
             </div>
 
             <div class="saved-careers" id="savedCareers" style="display: none;">
@@ -52,7 +52,7 @@
 
         <div class="footer-nav">
             <a href="/" class="btn-back">Home</a>
-            <a href="/interests" class="btn-next">Explore More</a>
+            <a href="/interest" class="btn-next">Explore More</a>
         </div>
 
     </div>

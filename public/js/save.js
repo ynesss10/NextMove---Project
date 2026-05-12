@@ -169,7 +169,7 @@ const displaySavedCareers = () => {
         <div class="career-card-body">
           <div class="career-description">${career.description}</div>
           <div class="career-card-actions">
-            <a href="/details?${career.career_id ? 'id=' + career.career_id : 'name=' + encodeURIComponent(career.name)}" class="btn btn-view">View Detail</a>
+            <a href="/detail?${career.career_id ? 'id=' + career.career_id : 'name=' + encodeURIComponent(career.name)}" class="btn btn-view">View Detail</a>
           </div>
         </div>
       `;

@@ -6,12 +6,12 @@ class ResultController
     public function result()
     {
         if (!isset($_SESSION['user_name'])) {
-            header('Location: /logins');
+            header('Location: /login');
             exit;
         }
 
         if (!isset($_SESSION['selected_interest']) || !isset($_SESSION['selected_skill'])) {
-            header('Location: /interests');
+            header('Location: /interest');
             exit;
         }
 
@@ -80,7 +80,7 @@ class ResultController
         $interest = $interestModel->getById($interestId);
         $skill = $skillModel->getById($skillId);
 
-        require_once '../app/views/results/result.php';
+        require_once '../app/views/result.php';
     }
 }
 

@@ -19,7 +19,7 @@
           <a href="/logout" class="logout-button">Log Out</a>
         </div>
       <?php else: ?>
-        <a href="/registers" class="help-button">Sign Up</a>
+        <a href="/register" class="help-button">Sign Up</a>
       <?php endif; ?>
     </div>
   </div>
@@ -58,7 +58,7 @@
         <div class="card-header"><?= htmlspecialchars($career['name']) ?></div>
         <div class="card-body"><?= htmlspecialchars($career['description']) ?></div>
         <div class="card-actions">
-          <a href="/details?id=<?= $career['id'] ?>" class="btn btn-view">View Detail</a>
+          <a href="/detail?id=<?= $career['id'] ?>" class="btn btn-view">View Detail</a>
           <button class="btn btn-save" data-id="<?= $career['id'] ?>">Save</button>
         </div>
       </div>
@@ -72,7 +72,7 @@
 
     <div class="footer-nav">
 <a href="/" class="btn-back">Home</a>
-<a href="/interests" class="btn-next">Explore More</a>
+<a href="/interest" class="btn-next">Explore More</a>
 </div>
 
 </div>

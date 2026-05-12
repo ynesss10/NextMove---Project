@@ -18,7 +18,7 @@
           <a href="/logout" class="logout-button">Log Out</a>
         </div>
       <?php else: ?>
-        <a href="/registers" class="help-button">Sign Up</a>
+        <a href="/register" class="help-button">Sign Up</a>
       <?php endif; ?>
     </div>
   </div>

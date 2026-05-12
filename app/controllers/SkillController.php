@@ -6,12 +6,12 @@ class SkillController
     public function skill()
     {
         if (!isset($_SESSION['user_name'])) {
-            header('Location: /logins');
+            header('Location: /login');
             exit;
         }
 
         if (!isset($_SESSION['selected_interest'])) {
-            header('Location: /interests');
+            header('Location: /interest');
             exit;
         }
 
@@ -44,28 +44,28 @@ class SkillController
             $skills = array_slice($skills, 0, 3);
         }
 
-        require_once '../app/views/skills/skill.php';
+        require_once '../app/views/skill.php';
     }
 
     public function saveSkill()
     {
         if (!isset($_SESSION['user_id'])) {
-            header('Location: /logins');
+            header('Location: /login');
             exit;
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (!isset($_POST['skill_id'])) {
-                header('Location: /skills');
+                header('Location: /skill');
                 exit;
             }
 
             $_SESSION['selected_skill'] = $_POST['skill_id'];
-            header('Location: /results');
+            header('Location: /result');
             exit;
         }
 
-        header('Location: /skills');
+        header('Location: /skill');
         exit;
     }
 }

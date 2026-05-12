@@ -29,7 +29,7 @@ class DetailController
         $skills = $model->getCareerSkills($id);
         $educations = $model->getCareerEducations($id);
 
-        require_once '../app/views/details/detail.php';
+        require_once '../app/views/detail.php';
     }
 }
 
