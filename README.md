@@ -47,7 +47,7 @@ Next Move is a web-based platform designed to help students explore their intere
 ## Architecture
 
 ```Project Structure
-nextmove/
+Next-Move/
 ├── app/                ~ Application logic
 ├── public/             ~ Public assets and entry point
 ├── assets/             ~ Images and icons
