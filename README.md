@@ -88,10 +88,10 @@ Whether you are fixing bugs, adding new features, improving the interface, or en
 5. Wait for review and feedback before merging.
    
 ## Contribution Guidelines
--Keep your code clean, structured, and well-documented.
--Ensure that any new features or fixes are properly tested.
--Maintain consistency with the existing project structure.
--Be respectful and collaborative in discussions.
+- Keep your code clean, structured, and well-documented.
+- Ensure that any new features or fixes are properly tested.
+- Maintain consistency with the existing project structure.
+- Be respectful and collaborative in discussions.
 
 ---
 
